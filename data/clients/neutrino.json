@@ -14,8 +14,8 @@
     }
   ],
   "landingPage": {
-    "url": "TBC — pending GitHub Pages / Vercel deployment",
-    "status": "staging",
+    "url": "TBC — pending neutrino landing page deployment",
+    "status": "pending",
     "emailCapture": true
   },
   "leads": {
@@ -35,11 +35,9 @@
     "pipeline": 10
   },
   "nextActions": [
-    "Founder: approve landing page before publish (APPROVAL NEEDED)",
     "Founder: approve first LinkedIn post — Mon 21 Apr (APPROVAL NEEDED)",
     "Founder: provide LinkedIn account credentials for scheduling",
-    "CTO: connect landing page to live domain once deployed",
-    "CTO: update landing page URL in this record once live"
+    "CTO: deploy neutrino landing page and update this record with the URL"
   ],
   "updatedAt": "2026-04-20"
 }
