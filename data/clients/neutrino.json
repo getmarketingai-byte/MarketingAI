@@ -1,0 +1,45 @@
+{
+  "clientId": "neutrino",
+  "name": "neutrino.au",
+  "status": "active",
+  "campaigns": [
+    {
+      "id": "early-access-2026",
+      "name": "Early Access Launch",
+      "status": "active",
+      "startDate": "2026-04-19",
+      "description": "Drive early access signups from Australian idea holders via landing page and organic LinkedIn content.",
+      "channels": ["LinkedIn organic", "Landing page (email capture)"],
+      "goal": "$200 AUD collected revenue by 2026-05-19"
+    }
+  ],
+  "landingPage": {
+    "url": "TBC — pending GitHub Pages / Vercel deployment",
+    "status": "staging",
+    "emailCapture": true
+  },
+  "leads": {
+    "total": 0,
+    "thisWeek": 0,
+    "source": "Mailchimp early-access list",
+    "lastUpdated": "2026-04-20"
+  },
+  "contentCalendar": {
+    "source": "LinkedIn organic (founder profile)",
+    "cadence": "Mon + Thu — 2 posts/week",
+    "nextPost": {
+      "date": "2026-04-21",
+      "type": "Problem-awareness",
+      "status": "ready — awaiting founder approval"
+    },
+    "pipeline": 10
+  },
+  "nextActions": [
+    "Founder: approve landing page before publish (APPROVAL NEEDED)",
+    "Founder: approve first LinkedIn post — Mon 21 Apr (APPROVAL NEEDED)",
+    "Founder: provide LinkedIn account credentials for scheduling",
+    "CTO: connect landing page to live domain once deployed",
+    "CTO: update landing page URL in this record once live"
+  ],
+  "updatedAt": "2026-04-20"
+}
