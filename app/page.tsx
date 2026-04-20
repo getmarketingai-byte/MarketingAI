@@ -89,6 +89,7 @@ export default function Home() {
         <div className="max-w-lg mx-auto text-center">
           <p className="text-xs font-bold tracking-widest uppercase text-blue-400 mb-4">One-off setup fee</p>
           <div className="text-6xl font-extrabold tracking-tight mb-1">$149 <span className="text-2xl font-semibold">AUD</span></div>
+          <p className="text-blue-300 text-sm font-semibold mb-2">Agencies charge $2,000&ndash;$5,000/month. You pay $149 once.</p>
           <p className="text-gray-400 text-sm mb-8">One-time. No ongoing fees. No lock-in.</p>
           <ul className="text-left space-y-3 mb-8">
             <li className="flex gap-3 text-sm"><span className="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>Full setup of all three systems configured for your business</span></li>
