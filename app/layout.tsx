@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/next';
 export const metadata: Metadata = {
   title: "MarketingAI Portal",
   description: "Your marketing dashboard",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-gray-50 text-gray-900 min-h-screen">{children}</body>
+      <body className="bg-gray-50 text-gray-900 min-h-screen">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
