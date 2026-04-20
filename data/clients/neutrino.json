@@ -30,14 +30,73 @@
     "nextPost": {
       "date": "2026-04-21",
       "type": "Problem-awareness",
-      "status": "ready — awaiting founder approval"
+      "status": "awaiting your approval"
     },
     "pipeline": 10
   },
-  "nextActions": [
-    "Founder: approve first LinkedIn post — Mon 21 Apr (APPROVAL NEEDED)",
-    "Founder: provide LinkedIn account credentials for scheduling",
-    "CTO: deploy neutrino landing page and update this record with the URL"
+  "posts": [
+    {
+      "id": "post-1-problem-awareness",
+      "title": "Problem Awareness — The Idea Holder's Frustration",
+      "scheduledDate": "2026-04-21",
+      "platform": "LinkedIn",
+      "status": "awaiting_approval",
+      "body": "You've had the idea for two years.\n\nYou know there's a product in it. You've sketched it on a notepad, described it to your partner, Googled \"how to get something manufactured in Australia\" at midnight.\n\nThen you hit the wall.\n\nCAD freelancers who don't respond. Manufacturers with minimum order quantities in the thousands. Advice from Reddit threads that's three years old.\n\nThe problem isn't the idea. The problem is the path.\n\nMost people with good ideas give up not because the idea was bad — but because the route from idea to physical product is fragmented, opaque, and exhausting to navigate alone.\n\nThe design step. The engineering step. The prototyping step. The manufacturing step. Each one is a separate conversation with a separate person who doesn't know what the last person told you.\n\nThat gap is what Neutrino is designed to close.\n\nIf you've been sitting on a physical product idea and wondering where to even begin — I'd like to hear about it.\n\nDrop a comment or send me a message. No pitch, just curious.\n\n(Outcomes on neutrino.au are illustrative — the platform coordinates the process, results vary by project.)"
+    },
+    {
+      "id": "post-2-coordination",
+      "title": "Insight — Why Execution Is the Real Problem",
+      "scheduledDate": "2026-04-24",
+      "platform": "LinkedIn",
+      "status": "scheduled",
+      "body": "Here's the part nobody tells you about getting a product made:\n\nThe hardest bit isn't design. It's not manufacturing. It's not even the money.\n\nIt's coordination.\n\nGetting a product from idea to physical object requires design skills, engineering knowledge, manufacturing relationships, and project management — and for most individuals, these don't live under one roof.\n\nSo you end up stitching it together yourself:\n- A CAD designer on one platform\n- A 3D printing service you found through Google\n- A manufacturer who responds to one email in five\n- You, holding it all together while also running your actual life\n\nThat coordination cost is invisible until you're deep inside it. And it's why so many ideas die in the middle — not at the start.\n\nThere's a better way to approach this. Neutrino is building it — a coordinated, guided path from idea to physical product, all in one place.\n\nFollow along if this resonates. More to come."
+    },
+    {
+      "id": "post-3-process",
+      "title": "Process — What It Actually Takes",
+      "scheduledDate": "2026-04-28",
+      "platform": "LinkedIn",
+      "status": "scheduled",
+      "body": "What does it actually take to go from idea to product in Australia?\n\nHere's a rough picture:\n\nStep 1 — Concept definition. You need to describe what you want, technically enough for a designer to work with. Most people can't, and that's fine — but it costs rounds of back-and-forth.\n\nStep 2 — CAD design. Someone needs to take your sketch and turn it into a 3D file. In Australia, qualified CAD designers exist — but finding them, and knowing you're getting quality work, is its own problem.\n\nStep 3 — Prototyping. You want to hold the thing before committing to a production run. That usually means 3D printing or CNC machining. More people. More coordination.\n\nStep 4 — Manufacturing. If it goes beyond prototyping, you're finding a manufacturer willing to do small-run production. Minimum quantities are often a barrier.\n\nEvery step is a separate relationship to build, a separate quote to get, a separate timeline to manage.\n\nNeutrino is working to coordinate this end-to-end — so you don't have to run the project yourself.\n\nWe're in early stages. Interested in being one of the first Australians to try it?"
+    },
+    {
+      "id": "post-4-freelancers",
+      "title": "Reframe — Why Freelancers Alone Don't Solve This",
+      "scheduledDate": "2026-05-01",
+      "platform": "LinkedIn",
+      "status": "scheduled",
+      "body": "The freelancer model works well for some things.\n\nCopy, design, web development — the feedback loop is short. Brief → draft → revision → done.\n\nFor physical products, the loop looks very different:\n\nBrief → misaligned expectations → redesign → prototype → doesn't fit → back to the designer → manufacturer won't take small orders → find another → repeat.\n\nIt's not that the freelancers are bad. It's that physical product development is genuinely complex — and it requires specialists who understand each other's constraints.\n\nThat's why the right model isn't a marketplace where you hire individual contractors and coordinate them yourself. It's a guided workflow where the right people are matched to your project, in sequence, with context carried between them.\n\nWe're building that in Australia. It's called Neutrino.\n\nCurious to know more? Drop a comment or send me a message.\n\n(All project timelines and outcomes vary. Neutrino facilitates — it does not guarantee results.)"
+    },
+    {
+      "id": "post-5-early-access",
+      "title": "Early Access CTA",
+      "scheduledDate": "2026-05-05",
+      "platform": "LinkedIn",
+      "status": "scheduled",
+      "body": "If you've got a physical product idea you haven't been able to move forward — this one's for you.\n\nWe're building Neutrino, a platform to help Australians take ideas all the way to physical products. Guided. Coordinated. All in one place.\n\nWe're not promising guaranteed timelines or fixed prices — every project is different, and we'll be upfront about that. What we're offering is a clear, managed path forward, with the right people alongside you.\n\nWe're looking for our first users. Not to sell to — to learn from.\n\nIf you've been thinking about a product idea and haven't found the right way to move it forward, I'd love a conversation.\n\nComment below or send me a message. (Australia only, for now.)"
+    }
   ],
+  "nextActions": [
+    {
+      "id": "approve-post-1",
+      "text": "Approve first LinkedIn post — scheduled Mon 21 Apr",
+      "type": "approval",
+      "postId": "post-1-problem-awareness",
+      "urgent": true
+    },
+    {
+      "id": "submit-linkedin-creds",
+      "text": "Submit LinkedIn account credentials so your team can schedule posts",
+      "type": "credentials",
+      "urgent": false
+    },
+    {
+      "id": "landing-page-deploy",
+      "text": "Landing page deployment in progress — URL coming soon",
+      "type": "info",
+      "urgent": false
+    }
+  ],
+  "supportEmail": "support@getmarketingai.com",
   "updatedAt": "2026-04-20"
 }

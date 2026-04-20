@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
-import { getClientData } from "@/lib/data";
+import { getClientData, NextAction } from "@/lib/data";
 import Nav from "@/components/Nav";
 
 export default async function DashboardPage() {
@@ -11,6 +11,9 @@ export default async function DashboardPage() {
   if (!client) redirect("/login");
 
   const activeCampaigns = client.campaigns.filter((c) => c.status === "active");
+  const urgentActions = client.nextActions.filter((a) => a.urgent);
+
+  const credentialsMailto = `mailto:${client.supportEmail ?? "support@getmarketingai.com"}?subject=LinkedIn%20Credentials%20for%20${encodeURIComponent(client.name)}&body=Hi%20team%2C%0A%0AHere%20are%20my%20LinkedIn%20credentials%20for%20post%20scheduling%3A%0A%0AEmail%3A%20%5Byour%20LinkedIn%20email%5D%0APassword%3A%20%5Byour%20LinkedIn%20password%5D%0A%0ANotes%3A%20%5Bany%20additional%20notes%5D`;
 
   return (
     <div>
@@ -88,7 +91,7 @@ export default async function DashboardPage() {
                 {client.landingPage.status}
               </span>
             </div>
-            {client.landingPage.url && client.landingPage.url !== "TBC" && (
+            {client.landingPage.url && client.landingPage.url !== "TBC" && !client.landingPage.url.startsWith("TBC") && (
               <a
                 href={client.landingPage.url}
                 target="_blank"
@@ -104,23 +107,81 @@ export default async function DashboardPage() {
           </div>
         </section>
 
-        {/* Next actions */}
+        {/* Actions needed from you */}
         {client.nextActions.length > 0 && (
           <section>
-            <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">
-              Next actions
-            </h2>
-            <ul className="space-y-2">
-              {client.nextActions.map((action, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
-                  <span className="text-gray-400 mt-0.5">→</span>
-                  {action}
-                </li>
+            <div className="flex items-center gap-2 mb-3">
+              <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
+                Actions needed from you
+              </h2>
+              {urgentActions.length > 0 && (
+                <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-medium">
+                  {urgentActions.length} urgent
+                </span>
+              )}
+            </div>
+            <div className="space-y-3">
+              {client.nextActions.map((action) => (
+                <ActionItem
+                  key={action.id}
+                  action={action}
+                  credentialsMailto={credentialsMailto}
+                />
               ))}
-            </ul>
+            </div>
           </section>
         )}
       </main>
+    </div>
+  );
+}
+
+function ActionItem({
+  action,
+  credentialsMailto,
+}: {
+  action: NextAction;
+  credentialsMailto: string;
+}) {
+  if (action.type === "info") {
+    return (
+      <div className="flex items-start gap-3 bg-white border border-gray-200 rounded-xl p-4">
+        <span className="text-gray-300 mt-0.5 text-lg leading-none">·</span>
+        <p className="text-sm text-gray-500">{action.text}</p>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`flex items-start justify-between gap-4 bg-white border rounded-xl p-4 ${
+        action.urgent ? "border-amber-200 bg-amber-50" : "border-gray-200"
+      }`}
+    >
+      <div className="flex items-start gap-3 min-w-0">
+        <span className={`mt-0.5 text-lg leading-none ${action.urgent ? "text-amber-500" : "text-gray-400"}`}>
+          →
+        </span>
+        <p className={`text-sm ${action.urgent ? "text-amber-900 font-medium" : "text-gray-700"}`}>
+          {action.text}
+        </p>
+      </div>
+      {action.type === "approval" && (
+        <a
+          href={`/content`}
+          className="flex-shrink-0 text-xs bg-amber-600 hover:bg-amber-700 text-white px-3 py-1.5 rounded-lg font-medium transition-colors"
+        >
+          Review post
+        </a>
+      )}
+      {action.type === "credentials" && (
+        <a
+          href={credentialsMailto}
+          className="flex-shrink-0 text-xs bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg font-medium transition-colors"
+        >
+          Submit
+        </a>
+      )}
     </div>
   );
 }

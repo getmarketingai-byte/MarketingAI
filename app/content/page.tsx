@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
-import { getClientData } from "@/lib/data";
+import { getClientData, Post } from "@/lib/data";
 import Nav from "@/components/Nav";
+import PostCard from "@/components/PostCard";
 
 export default async function ContentPage() {
   const session = await getSession();
@@ -10,7 +11,10 @@ export default async function ContentPage() {
   const client = getClientData(session.clientId);
   if (!client) redirect("/login");
 
-  const { contentCalendar } = client;
+  const { contentCalendar, posts, supportEmail } = client;
+
+  const postsNeedingApproval = posts.filter((p) => p.status === "awaiting_approval");
+  const scheduledPosts = posts.filter((p) => p.status !== "awaiting_approval");
 
   return (
     <div>
@@ -37,25 +41,42 @@ export default async function ContentPage() {
             <p className="text-xs text-gray-500 mt-1">
               Next post · {contentCalendar.nextPost.type}
             </p>
-            <span
-              className={`inline-block mt-2 text-xs px-2 py-0.5 rounded-full font-medium ${
-                contentCalendar.nextPost.status === "ready"
-                  ? "bg-green-50 text-green-700"
-                  : "bg-yellow-50 text-yellow-700"
-              }`}
-            >
+            <span className="inline-block mt-2 text-xs px-2 py-0.5 rounded-full font-medium bg-yellow-50 text-yellow-700">
               {contentCalendar.nextPost.status}
             </span>
           </div>
         </div>
 
-        <div className="bg-white border border-gray-200 rounded-xl p-6">
-          <p className="text-sm text-gray-500">
-            Full content calendar is managed by your MarketingAI team. Posts are
-            drafted, reviewed, and ready to publish on the scheduled dates. Your team will
-            notify you before any post goes live for your approval.
-          </p>
-        </div>
+        {postsNeedingApproval.length > 0 && (
+          <section className="mb-8">
+            <div className="flex items-center gap-2 mb-3">
+              <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
+                Needs your approval
+              </h2>
+              <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-medium">
+                {postsNeedingApproval.length}
+              </span>
+            </div>
+            <div className="space-y-4">
+              {postsNeedingApproval.map((post) => (
+                <PostCard key={post.id} post={post} supportEmail={supportEmail} showApprove />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {scheduledPosts.length > 0 && (
+          <section className="mb-8">
+            <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">
+              Scheduled posts
+            </h2>
+            <div className="space-y-4">
+              {scheduledPosts.map((post) => (
+                <PostCard key={post.id} post={post} supportEmail={supportEmail} showApprove={false} />
+              ))}
+            </div>
+          </section>
+        )}
       </main>
     </div>
   );

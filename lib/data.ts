@@ -11,6 +11,23 @@ export interface Campaign {
   goal: string;
 }
 
+export interface Post {
+  id: string;
+  title: string;
+  scheduledDate: string;
+  platform: string;
+  status: "awaiting_approval" | "approved" | "scheduled" | "published";
+  body: string;
+}
+
+export interface NextAction {
+  id: string;
+  text: string;
+  type: "approval" | "credentials" | "info";
+  postId?: string;
+  urgent: boolean;
+}
+
 export interface ClientRecord {
   clientId: string;
   name: string;
@@ -33,7 +50,9 @@ export interface ClientRecord {
     nextPost: { date: string; type: string; status: string };
     pipeline: number;
   };
-  nextActions: string[];
+  posts: Post[];
+  nextActions: NextAction[];
+  supportEmail?: string;
   updatedAt: string;
 }
 
