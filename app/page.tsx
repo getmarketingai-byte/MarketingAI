@@ -22,7 +22,7 @@ export default function Home() {
           MarketingAI sets up an automated system that finds, attracts, and nurtures your
           customers &mdash; without you managing it day to day.
         </p>
-        <a
+        <div className="flex flex-wrap gap-3 justify-center">
           href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
           target="_blank"
           rel="noopener noreferrer"
@@ -30,9 +30,49 @@ export default function Home() {
         >
           Get started &mdash; $149 AUD
         </a>
+          <a
+            href="https://calendly.com/getmarketingai/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block border border-gray-300 hover:border-gray-600 text-gray-700 font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
+          >
+            Book a free call first
+          </a>
+        </div>
         <p className="text-sm text-gray-400 mt-4">One-time setup fee. No lock-in. No monthly retainer.</p>
       </section>
 
+      {/* EMAIL CAPTURE - Replace MAILCHIMP_FORM_ACTION_URL once founder creates Mailchimp account */
+      <section className="bg-blue-50 border-y border-blue-100 py-14 px-6">
+        <div className="max-w-xl mx-auto text-center">
+          <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-3">Early access</p>
+          <h2 className="text-2xl font-extrabold tracking-tight mb-3">
+            Get early access &mdash; before the price goes up
+          </h2>
+          <p className="text-sm text-gray-500 mb-7">
+            Limited spots at $149. Join the list and we will reach out when one opens.
+          </p>
+          <form action="MAILCHIMP_FORM_ACTION_URL" method="post" name="mc-embedded-subscribe-form"
+            target="_blank" rel="noopener noreferrer"
+            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input type="email" name="EMAIL" placeholder="Your email address" required
+              className="flex-1 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
+              <input type="text" name="b_MAILCHIMP_HONEYPOT" tabIndex={-1} defaultValue="" />
+            </div>
+            <button type="submit" name="subscribe"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg text-sm transition-colors whitespace-nowrap">
+              Get early access
+            </button>
+          </form>
+          <p className="text-xs text-gray-400 mt-3">
+            By submitting you agree to receive MarketingAI emails. Unsubscribe any time.
+            We never share your details. Australian Spam Act compliant.
+          </p>
+        </div>
+      </section>
+
+      {/* PROBLEM */
       {/* PROBLEM */}
       <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-2xl mx-auto">
@@ -67,17 +107,17 @@ export default function Home() {
           <div className="space-y-5">
             <div className="border border-gray-200 rounded-xl p-6">
               <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-2">System 1</p>
-              <h3 className="font-bold text-base mb-2">AI Funnel Machine</h3>
+              <h3 className="font-bold text-base mb-2">AI Content Engine</h3>
               <p className="text-sm text-gray-500">A lead capture and nurture system that turns website visitors and social followers into contacts you can actually talk to. AI-assisted copy, automated follow-up, and clear conversion tracking &mdash; all configured for your specific business and audience.</p>
             </div>
             <div className="border border-gray-200 rounded-xl p-6">
               <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-2">System 2</p>
-              <h3 className="font-bold text-base mb-2">Outbound Engine</h3>
+              <h3 className="font-bold text-base mb-2">Outbound Lead Sequence</h3>
               <p className="text-sm text-gray-500">Structured, personalised outreach to the right people &mdash; not mass spam. A targeted sequence that identifies your ideal customers, crafts relevant messages, and follows up automatically so you stay top of mind without lifting a finger.</p>
             </div>
             <div className="border border-gray-200 rounded-xl p-6">
               <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-2">System 3</p>
-              <h3 className="font-bold text-base mb-2">Creative Goldmine</h3>
+              <h3 className="font-bold text-base mb-2">Email Nurture Sequence</h3>
               <p className="text-sm text-gray-500">A repeatable system for turning what you already know into content that builds authority and drives inbound interest. We set up the framework &mdash; you get a library of content assets that work for you 24/7, without needing to be a writer or content strategist.</p>
             </div>
           </div>
@@ -92,13 +132,12 @@ export default function Home() {
           <p className="text-blue-300 text-sm font-semibold mb-2">Agencies charge $2,000&ndash;$5,000/month. You pay $149 once.</p>
           <p className="text-gray-400 text-sm mb-8">One-time. No ongoing fees. No lock-in.</p>
           <ul className="text-left space-y-3 mb-8">
-            <li className="flex gap-3 text-sm"><span className="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>Full setup of all three systems configured for your business</span></li>
-            <li className="flex gap-3 text-sm"><span className="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>30-minute onboarding session to capture your customers, offer, and goals</span></li>
-            <li className="flex gap-3 text-sm"><span className="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>Custom templates and automation flows &mdash; ready to run</span></li>
-            <li className="flex gap-3 text-sm"><span className="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>Walkthrough of how to operate and iterate each system</span></li>
-            <li className="flex gap-3 text-sm"><span className="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>30 days of follow-up support via email</span></li>
+            <li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>Full setup of all three systems (AI Content Engine, Outbound Lead Sequence, Email Nurture Sequence)</span></li>
+            <li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>1 x 45-minute discovery call (voice or video)</span></li>
+            <li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>All three systems drafted and delivered within 3-5 business days</span></li>
+            <li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>1 x revision round on any deliverable within 7 days of delivery</span></li>
           </ul>
-          <a
+          <div className="flex flex-wrap gap-3 justify-center">
             href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
             target="_blank"
             rel="noopener noreferrer"
@@ -106,7 +145,17 @@ export default function Home() {
           >
             Buy now &mdash; $149 AUD
           </a>
-          <p className="text-xs text-gray-500 mt-4">
+            Buy now &mdash; $149 AUD
+          </a>
+          <a
+            href="https://calendly.com/getmarketingai/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block border border-white/30 hover:border-white text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
+          >
+            Book a free call first
+          </a>
+          </div>
             No monthly retainer. No minimum term. Pay once, own the setup.
           </p>
         </div>
@@ -126,13 +175,23 @@ export default function Home() {
             The $149 setup fee is deliberately low &mdash; because we want case studies, not just customers.
             If you&rsquo;re in early, you get our full attention.
           </p>
-          <a
+          <div className="flex flex-wrap gap-3 justify-center">
             href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg transition-colors"
           >
             Get started &mdash; $149 AUD
+          </a>
+          <a
+            href="https://calendly.com/getmarketingai/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block border border-gray-300 hover:border-gray-600 text-gray-700 font-semibold px-8 py-4 rounded-lg transition-colors"
+          >
+            Book a free call first
+          </a>
+          </div>
           </a>
         </div>
       </section>
