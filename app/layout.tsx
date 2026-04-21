@@ -15,6 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-AU">
+      <head>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076137753154472"
+          crossOrigin="anonymous"></script>
+      </head>
       <body className="bg-gray-50 text-gray-900 min-h-screen">
         {children}
         <Analytics />
