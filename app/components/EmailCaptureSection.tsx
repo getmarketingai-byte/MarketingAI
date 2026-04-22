@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-// EMAIL CAPTURE — OPTED-IN SUBSCRIBERS ONLY (Australian Spam Act 2003 compliance)
-// Submissions route to getmarketingai@gmail.com via mailto fallback until Mailchimp is set up (NMA-115).
+const MAILERLITE_ENDPOINT = 'https://assets.mailerlite.com/jsonp/2282416/forms/185339817098216933/subscribe';
+
 export default function EmailCaptureSection() {
   const [submitted, setSubmitted] = useState(false);
   const [name, setName] = useState('');
@@ -11,20 +11,37 @@ export default function EmailCaptureSection() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name || !type || !email) return;
     setLoading(true);
-    // Mailto fallback — records lead in getmarketingai@gmail.com inbox
-    const subject = encodeURIComponent('MarketingAI Early Access: ' + name);
-    const body = encodeURIComponent(
-      'New early access signup:\n\n' +
-      'Business name: ' + name + '\n' +
-      'Industry: ' + type + '\n' +
-      'Email: ' + email + '\n\n' +
-      '\u2014 Submitted via marketingai landing page'
-    );
-    window.location.href = 'mailto:getmarketingai@gmail.com?subject=' + subject + '&body=' + body;
+
+    const params = new URLSearchParams();
+    params.append('fields[email]', email);
+    params.append('fields[name]', name);
+    params.append('fields[last_name]', type);
+    params.append('ml-submit', '1');
+    params.append('anticsrf', 'true');
+
+    try {
+      await fetch(MAILERLITE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      });
+    } catch {
+      // Fallback to mailto on network error
+      const subject = encodeURIComponent('MarketingAI Early Access: ' + name);
+      const body = encodeURIComponent(
+        'New early access signup:\n\n' +
+        'Business name: ' + name + '\n' +
+        'Industry: ' + type + '\n' +
+        'Email: ' + email + '\n\n' +
+        '\u2014 Submitted via marketingai landing page (MailerLite fallback)'
+      );
+      window.location.href = 'mailto:getmarketingai@gmail.com?subject=' + subject + '&body=' + body;
+    }
+
     setSubmitted(true);
     setLoading(false);
   }

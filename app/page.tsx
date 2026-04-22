@@ -45,7 +45,7 @@ export default function Home() {
         <p className="text-sm text-gray-400 mt-4">One-time setup fee. No lock-in. No monthly retainer.</p>
       </section>
 
-      {/* EMAIL CAPTURE - Replace MAILCHIMP_FORM_ACTION_URL once founder creates Mailchimp account */}
+      {/* EMAIL CAPTURE - MailerLite (NMA-141) */}
       <section className="bg-blue-50 border-y border-blue-100 py-14 px-6">
         <div className="max-w-xl mx-auto text-center">
           <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-3">Early access</p>
@@ -55,13 +55,13 @@ export default function Home() {
           <p className="text-sm text-gray-500 mb-7">
             Limited spots at $149. Join the list and we will reach out when one opens.
           </p>
-          <form action="MAILCHIMP_FORM_ACTION_URL" method="post" name="mc-embedded-subscribe-form"
+          <form action="https://assets.mailerlite.com/jsonp/2282416/forms/185339817098216933/subscribe" method="post" name="mc-embedded-subscribe-form"
             target="_blank" rel="noopener noreferrer"
             className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input type="email" name="EMAIL" placeholder="Your email address" required
+            <input type="email" name="fields[email]" placeholder="Your email address" required
               className="flex-1 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
             <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
-              <input type="text" name="b_MAILCHIMP_HONEYPOT" tabIndex={-1} defaultValue="" />
+              <input type="text" name="ml-submit" tabIndex={-1} defaultValue="1" />
             </div>
             <button type="submit" name="subscribe"
               className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg text-sm transition-colors whitespace-nowrap">
