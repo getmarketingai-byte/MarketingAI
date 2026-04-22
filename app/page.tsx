@@ -1,4 +1,3 @@
-import EmailCaptureSection from './components/EmailCaptureSection';
 
 export default function Home() {
   return (
