@@ -23,13 +23,14 @@ export default function Home() {
           customers &mdash; without you managing it day to day.
         </p>
         <div className="flex flex-wrap gap-3 justify-center">
-          href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors"
-        >
-          Get started &mdash; $149 AUD
-        </a>
+          <a
+            href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors"
+          >
+            Get started &mdash; $149 AUD
+          </a>
           <a
             href="https://calendly.com/getmarketingai/30min"
             target="_blank"
@@ -138,24 +139,24 @@ export default function Home() {
             <li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>1 x revision round on any deliverable within 7 days of delivery</span></li>
           </ul>
           <div className="flex flex-wrap gap-3 justify-center">
-            href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors"
-          >
-            Buy now &mdash; $149 AUD
-          </a>
-            Buy now &mdash; $149 AUD
-          </a>
-          <a
-            href="https://calendly.com/getmarketingai/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block border border-white/30 hover:border-white text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
-          >
-            Book a free call first
-          </a>
+            <a
+              href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors"
+            >
+              Buy now &mdash; $149 AUD
+            </a>
+            <a
+              href="https://calendly.com/getmarketingai/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block border border-white/30 hover:border-white text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
+            >
+              Book a free call first
+            </a>
           </div>
+          <p className="text-gray-500 text-xs mt-4">
             No monthly retainer. No minimum term. Pay once, own the setup.
           </p>
         </div>
