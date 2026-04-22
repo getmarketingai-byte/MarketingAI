@@ -178,23 +178,23 @@ export default function Home() {
             If you&rsquo;re in early, you get our full attention.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
-            href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg transition-colors"
-          >
-            Get started &mdash; $149 AUD
-          </a>
-          <a
-            href="https://calendly.com/getmarketingai/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block border border-gray-300 hover:border-gray-600 text-gray-700 font-semibold px-8 py-4 rounded-lg transition-colors"
-          >
-            Book a free call first
-          </a>
+            <a
+              href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg transition-colors"
+            >
+              Get started &mdash; $149 AUD
+            </a>
+            <a
+              href="https://calendly.com/getmarketingai/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block border border-gray-300 hover:border-gray-600 text-gray-700 font-semibold px-8 py-4 rounded-lg transition-colors"
+            >
+              Book a free call first
+            </a>
           </div>
-          </a>
         </div>
       </section>
 
