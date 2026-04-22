@@ -1,4 +1,4 @@
-import { EmailCaptureSection } from './components/EmailCaptureSection';
+import EmailCaptureSection from './components/EmailCaptureSection';
 
 export default function Home() {
   return (
@@ -45,7 +45,7 @@ export default function Home() {
         <p className="text-sm text-gray-400 mt-4">One-time setup fee. No lock-in. No monthly retainer.</p>
       </section>
 
-      {/* EMAIL CAPTURE - Replace MAILCHIMP_FORM_ACTION_URL once founder creates Mailchimp account */
+      {/* EMAIL CAPTURE - Replace MAILCHIMP_FORM_ACTION_URL once founder creates Mailchimp account */}
       <section className="bg-blue-50 border-y border-blue-100 py-14 px-6">
         <div className="max-w-xl mx-auto text-center">
           <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-3">Early access</p>
@@ -75,7 +75,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PROBLEM */
       {/* PROBLEM */}
       <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-2xl mx-auto">
@@ -135,10 +134,10 @@ export default function Home() {
           <p className="text-gray-400 text-sm mb-2">One-time. No ongoing fees. No lock-in.</p>
           <p className="text-gray-500 text-xs mb-8">Agencies charge $2,000&ndash;$5,000/month. You pay $149 once.</p>
           <ul className="text-left space-y-3 mb-8">
-            <li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>Full setup of all three systems (AI Content Engine, Outbound Lead Sequence, Email Nurture Sequence)</span></li>
-            <li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>1 x 45-minute discovery call (voice or video)</span></li>
-            <li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>All three systems drafted and delivered within 3-5 business days</span></li>
-            <li class="flex gap-3 text-sm"><span class="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>1 x revision round on any deliverable within 7 days of delivery</span></li>
+            <li className="flex gap-3 text-sm"><span className="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>Full setup of all three systems (AI Content Engine, Outbound Lead Sequence, Email Nurture Sequence)</span></li>
+            <li className="flex gap-3 text-sm"><span className="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>1 x 45-minute discovery call (voice or video)</span></li>
+            <li className="flex gap-3 text-sm"><span className="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>All three systems drafted and delivered within 3-5 business days</span></li>
+            <li className="flex gap-3 text-sm"><span className="text-blue-400 font-bold flex-shrink-0 mt-0.5">&#10003;</span><span>1 x revision round on any deliverable within 7 days of delivery</span></li>
           </ul>
           <div className="flex flex-wrap gap-3 justify-center">
             <a
