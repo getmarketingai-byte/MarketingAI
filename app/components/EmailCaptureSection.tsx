@@ -42,6 +42,9 @@ export default function EmailCaptureSection() {
       window.location.href = 'mailto:getmarketingai@gmail.com?subject=' + subject + '&body=' + body;
     }
 
+    // Redirect to checklist download page
+    window.location.href = 'https://marketingai-checklist.vercel.app/?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name);
+
     setSubmitted(true);
     setLoading(false);
   }
@@ -50,11 +53,12 @@ export default function EmailCaptureSection() {
     <section className="bg-blue-600 py-16 px-6" id="early-access">
       <div className="max-w-lg mx-auto text-center">
         <h2 className="text-2xl font-extrabold text-white mb-3">
-          Get a free content strategy recommendation
+          Get the Free Checklist + Early Access
         </h2>
         <p className="text-blue-100 text-sm mb-8">
-          Tell us about your business and we&rsquo;ll send you a personalised content strategy &mdash;
-          what to post, who to target, and how to start getting traction. Free, within 24 hours.
+          Download The 5-Point Marketing System Checklist for Australian Service Businesses — instantly, free.
+          Plus get notified when new tools and resources drop. No credit card. No obligation.
+          When you&rsquo;re ready to set up your AI-assisted marketing system ($149 once-off), we&rsquo;re here.
         </p>
         {!submitted ? (
           <form onSubmit={handleSubmit} className="flex flex-col gap-3" noValidate>
@@ -99,7 +103,7 @@ export default function EmailCaptureSection() {
               disabled={loading}
               className="w-full bg-gray-900 hover:bg-gray-800 text-white font-bold px-6 py-4 rounded-lg text-sm transition-colors"
             >
-              {loading ? 'Sending\u2026' : 'Send my free recommendation \u2192'}
+              {loading ? 'Sending\u2026' : 'Send Me the Checklist \u2192'}
             </button>
           </form>
         ) : (

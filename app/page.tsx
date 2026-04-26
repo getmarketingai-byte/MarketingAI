@@ -34,43 +34,13 @@ export default function Home() {
             Get started &mdash; $149 AUD
           </a>
           <a
-            href="#checklist"
+            href="#early-access"
             className="inline-block border border-gray-300 hover:border-gray-600 text-gray-700 font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
           >
             Download the free checklist
           </a>
         </div>
         <p className="text-sm text-gray-400 mt-4">One-time setup fee. No lock-in. No monthly retainer.</p>
-      </section>
-
-      {/* EMAIL CAPTURE - MailerLite (NMA-141) */}
-      <section id="checklist" className="bg-blue-50 border-y border-blue-100 py-14 px-6">
-        <div className="max-w-xl mx-auto text-center">
-          <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-3">Free checklist</p>
-          <h2 className="text-2xl font-extrabold tracking-tight mb-3">
-            Get the Free Checklist + Early Access
-          </h2>
-          <p className="text-sm text-gray-500 mb-7">
-            Download The 5-Point Marketing System Checklist for Australian Service Businesses — instantly, free. Plus get notified when new tools and resources drop.
-          </p>
-          <form action="https://assets.mailerlite.com/jsonp/2282416/forms/185339817098216933/subscribe" method="post" name="mc-embedded-subscribe-form"
-            target="_blank" rel="noopener noreferrer"
-            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input type="email" name="fields[email]" placeholder="Your email address" required
-              className="flex-1 border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <div style={{ position: "absolute", left: "-5000px" }} aria-hidden="true">
-              <input type="text" name="ml-submit" tabIndex={-1} defaultValue="1" />
-            </div>
-            <button type="submit" name="subscribe"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg text-sm transition-colors whitespace-nowrap">
-              Send Me the Checklist →
-            </button>
-          </form>
-          <p className="text-xs text-gray-400 mt-3">
-            We will only use your email to send your checklist and occasional MarketingAI updates.
-            No spam. Unsubscribe any time. Your details are never shared.
-          </p>
-        </div>
       </section>
 
       {/* PROBLEM */}

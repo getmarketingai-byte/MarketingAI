@@ -5,8 +5,8 @@ import { Analytics } from '@vercel/analytics/next';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: "MarketingAI — Automated marketing for Australian businesses",
-  description: "MarketingAI sets up an automated marketing system for your Australian business. AI Funnel Machine, Outbound Engine, and Creative Goldmine. $149 AUD one-time setup.",
+  title: "MarketingAI — AI-assisted marketing systems for Australian small businesses",
+  description: "MarketingAI sets up three AI-assisted marketing systems for your Australian business: AI Content Engine, Outbound Lead Sequence, and Email Nurture Sequence. $149 AUD one-time setup. No lock-in.",
 };
 
 export default function RootLayout({
