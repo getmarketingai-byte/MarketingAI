@@ -17,20 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en-AU">
       <head>
-        {/* Google tag (gtag.js) - Lesson #38 */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2Q8MGZ47BC"></script>
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-2Q8MGZ47BC');
-          `
-        }} />
-
         {/* Google AdSense - Lesson #17 */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076137753154472"
           crossOrigin="anonymous"></script>
+        {/* Google tag (gtag.js) - Lesson #38 */}
         <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-2Q8MGZ47BC" />
         <Script id="gtag-init" strategy="afterInteractive">
           {`
