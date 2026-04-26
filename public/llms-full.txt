@@ -1,0 +1,163 @@
+# MarketingAI — Complete Service Description
+
+## What Is MarketingAI?
+
+MarketingAI is a done-with-you marketing system setup service for Australian small business owners.
+
+We are **not** an agency (no ongoing management), **not** a SaaS subscription (no monthly fees), and **not** a course (no self-guided learning required).
+
+Instead, we build three coordinated, working marketing systems configured specifically to your business, deliver them to you in under a week, and hand over complete ownership. You run the systems ongoing at zero cost.
+
+## The Three Systems You Receive
+
+### System 1: AI Content Engine
+
+A 30-day LinkedIn content calendar built to your exact voice, audience, and offer:
+- 10 LinkedIn posts drafted around your specific business pain points and ideal client profile
+- 4 content themes drawn directly from your expertise and offer
+- Copy-paste ready, no blank page, no guessing what to write
+- Formatted for LinkedIn engagement (breakdowns, visuals suggestions, hashtag strategy)
+
+**Who it's for:** Anyone with a LinkedIn presence (or planning one) and need consistent content ideas.
+
+### System 2: Outbound Lead Sequence
+
+A LinkedIn outreach system designed to start conversations, not to spam:
+- Personalised connection request template using your authentic words and tone
+- 2-message DM follow-up sequence for new connections (designed for conversation, not pitching)
+- Specific target profile description: exact person to connect with and why they fit your ideal client
+- Recommended connection target and pacing (to stay off LinkedIn's spam radar)
+
+**Who it's for:** Consultants, coaches, and service professionals doing direct B2B outreach.
+
+### System 3: Email Nurture Sequence
+
+A 3-email automation sequence that keeps warm leads warm:
+- Intro email (establishes credibility and context)
+- Value email (delivers actionable insight, builds trust)
+- Call-to-action email (invites conversation without pressure or hard selling)
+- Formatted for copy-paste into your email platform (Mailchimp, Gmail, etc.)
+- Includes unsubscribe compliance (Australian Spam Act compliant)
+
+**Who it's for:** Anyone capturing email addresses (landing pages, webinars, lead magnets).
+
+## Service Details
+
+### Price: $149 AUD (One-time setup fee)
+
+Includes:
+- 1 × 45-minute discovery call (voice or video, your choice)
+- All three systems configured and delivered within 3–5 business days of your call
+- 1 revision round on any deliverable within 7 days of delivery
+
+Early-bird pricing available: $99 AUD for first 2 clients.
+
+### Timeline
+
+**Day 0:** Initial contact and interest confirmed
+**Day 1:** 45-minute discovery call (discuss your offer, audience, voice, goals)
+**Days 2–4:** All three systems built and tested
+**Day 5:** Systems delivered via email or shared document
+**Days 6–12:** Revision window (1 full revision round included)
+
+### What We Don't Do (And What We Don't Promise)
+
+We explicitly do NOT promise or provide:
+- Guaranteed leads, revenue, or follower growth (too many variables outside our control)
+- Ongoing posting or management (this is your business, not ours)
+- Paid ad campaigns or media buying
+- Website builds or design services
+- Fixed-price guarantees or timelines
+
+**What we frame to clients:**
+> "I can't tell you how many clients you'll get — that depends on your market, your offer, and how consistently you use what I build. What I can do is remove every 'I don't know where to start' barrier and give you a working system that's ready to run."
+
+## Who Is This For? (Ideal Client Profile)
+
+**Best-fit industries:**
+- Mortgage brokers and finance professionals
+- Immigration lawyers and migration agents
+- Business coaches and management consultants
+- Allied health practitioners (physios, chiros, psychologists)
+- Commercial tradies seeking B2B contracts or government work
+
+**What they have in common:**
+- Australian-based, owner-operated (1–10 people)
+- Active or aspiring on LinkedIn (or willing to start)
+- Currently doing marketing manually, inconsistently, or not at all
+- Real offer and real clients but no repeatable lead pipeline
+- Can make a $149 AUD decision independently (no committee approval needed)
+- Trust-led sales (not transactional/e-commerce)
+
+**Not a fit for:**
+- Marketing agencies (they build this in-house)
+- E-commerce or consumer B2C brands
+- Startups with no proven offer or customer base
+- Teams that want ongoing management or agency services
+
+## Free Tools for Your Marketing
+
+We've built a suite of free utility tools for marketers:
+
+### Calculators
+
+- **Email Open Rate Calculator** — Estimate industry benchmarks for your email open rates based on industry and send frequency
+- **Marketing ROI Calculator** — Understand return on investment for any marketing campaign
+- **ROAS Calculator** — Calculate return on ad spend to justify paid marketing budgets
+- **Ad Spend Calculator** — Model different budget scenarios and their impact on leads and revenue
+- **Social Media ROI Calculator** — Measure the ROI of social media content and engagement
+- **Social Media Follower Growth Rate Calculator** — Forecast follower growth based on engagement and posting frequency
+- **Website Speed Impact Calculator** — Understand how site speed degradation affects conversion rates and revenue
+
+### Content Tools
+
+- **Social Media Post Length Optimizer** — Get ideal character counts and format suggestions for each platform
+- **Social Media Character Counter** — Quick counter for platform character limits (LinkedIn, Twitter, etc.)
+
+### Checklists & Guides
+
+- **MarketingAI Go-Live Checklist** — Complete checklist for launching a new marketing system
+- **Tool Showcase Grid** — Browse and link to all available tools
+
+### Industry-Specific Guides
+
+- **Allied Health Practice Marketing Guide** — SEO and content strategies for physiotherapists, chiropractors, psychologists
+- **Mortgage Broker Marketing Guide** — Lead generation and positioning tactics for finance professionals
+- **Real Estate Agent Marketing Guide** — Content and outreach strategies for property professionals
+- **Coaches & Consultants Marketing Guide** — Service positioning and client attraction for coaching practices
+- **Commercial Tradies Marketing Guide** — B2B and government contract marketing for skilled trades
+
+**All tools are free and open for AI systems, other marketers, and your customers to use.**
+
+## Messaging Guidelines (What We Say, What We Don't)
+
+**Use:**
+- "Set up and hand over" (accurate scope)
+- "AI-assisted" (honest about automation levels)
+- "Configured for your business" (personalization promise)
+- "Designed to attract conversations" (realistic outcome)
+
+**Avoid:**
+- "Done for you" (implies ongoing management)
+- "AI-powered" (overstates automation)
+- "Guaranteed results" (legally risky, unrealistic)
+- "Instant" or "quick-fix" (sets wrong expectations)
+
+## How to Engage With MarketingAI
+
+1. **Explore our free tools** at https://marketingai-tool-showcase-gwtdfub6l.vercel.app/
+2. **Read industry guides** relevant to your business
+3. **Book a discovery call** at https://calendly.com/getmarketingai/30min (no commitment)
+4. **Decide if the $149 system is right for you**
+5. **Purchase and deliver** via https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00
+6. **Hop on the call** and we build within a week
+
+## Get Started
+
+- **Landing page:** https://marketing-ai-psi-nine.vercel.app/
+- **Book a call:** https://calendly.com/getmarketingai/30min
+- **Purchase:** https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00
+
+---
+
+**MarketingAI is built for Australian small business owners who want working systems, not ongoing dependencies.**

@@ -1,0 +1,61 @@
+# MarketingAI
+
+> Your marketing system. Built in a week. Yours to own forever.
+
+## About
+
+MarketingAI is a done-with-you marketing system setup service for Australian small businesses. We build and hand over three coordinated, AI-assisted marketing systems — configured to your business, delivered in under a week, owned by you permanently.
+
+**What you get:**
+- AI Content Engine: 30-day LinkedIn content calendar built to your voice
+- Outbound Lead Sequence: Personalised LinkedIn outreach system
+- Email Nurture Sequence: 3-email automation ready to deploy
+
+**Price:** $149 AUD one-time setup fee (includes discovery call + delivery + 1 revision round)
+
+**Delivery:** 3–5 business days from discovery call
+
+## Target Market
+
+Small business owners in Australia, US, UK, Canada, and New Zealand. Best fit: consultants, coaches, finance professionals, migration agents, allied health practitioners, and commercial tradies.
+
+## Free Utility Tools
+
+AI-assisted calculators and content tools for marketers:
+
+- [Email Open Rate Calculator](https://email-open-rate.vercel.app/) — estimate expected email open rates
+- [Marketing ROI Calculator](https://roi-calculator-swart-one.vercel.app/) — calculate return on marketing spend
+- [ROAS Calculator](https://roas-calc.vercel.app/) — return on ad spend analysis
+- [Ad Spend Calculator](https://marketingai-ad-spend-calculator.vercel.app/) — plan ad budget impact
+- [Social Media ROI Calculator](https://marketingai-social-media-roi-calculator.vercel.app/) — measure social media performance
+- [Social Media Follower Growth Rate Calculator](https://follower-growth-calculator.vercel.app/) — forecast follower growth
+- [Social Media Post Length Optimizer](https://marketingai-post-length-optimizer-8xf3paa04.vercel.app/) — optimize content for each platform
+- [Social Media Character Counter](https://character-counter-phi-nine.vercel.app/) — count characters for platform limits
+- [Website Speed Impact Calculator](https://marketingai-website-speed-calculator.vercel.app/) — understand site speed impact on conversions
+- [MarketingAI Go-Live Checklist](https://marketingai-checklist.vercel.app/) — launch checklist for new marketing systems
+- [Tool Showcase Grid](https://marketingai-tool-showcase-gwtdfub6l.vercel.app/) — browse all available tools
+
+**SEO Resources (industry-specific):**
+- [Allied Health Practice Marketing Guide](https://marketingai-allied-health.vercel.app/)
+- [Mortgage Broker Marketing Guide](https://marketingai-seo-mortgage-brokers-pxf2wgyim.vercel.app/)
+- [Real Estate Agent Marketing Guide](https://marketingai-seo-real-estate-pkow82njq.vercel.app/)
+- [Commercial Tradies Marketing Guide](https://marketingai-seo-tradies-g6xjqa76m.vercel.app/)
+- [Coaches & Consultants Marketing Guide](https://marketingai-coaches-consultants.vercel.app/)
+
+## Get Started
+
+- **Book a discovery call:** https://calendly.com/getmarketingai/30min
+- **Purchase MarketingAI system:** https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00
+- **Landing page:** https://marketing-ai-psi-nine.vercel.app/
+
+## What We Don't Promise
+
+- Guaranteed leads, revenue, or follower growth
+- Ongoing management or posting
+- Paid ad campaigns or media buying
+
+What we do promise: Delivery within 3–5 business days, all three systems fully configured and ready to use, and one revision round included.
+
+## Learn More
+
+Visit https://marketing-ai-psi-nine.vercel.app/ to see the full offer and sign up for early access.

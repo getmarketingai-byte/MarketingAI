@@ -9,6 +9,45 @@ export const metadata: Metadata = {
   description: "MarketingAI sets up three AI-assisted marketing systems for your Australian business: AI Content Engine, Outbound Lead Sequence, and Email Nurture Sequence. $149 AUD one-time setup. No lock-in.",
 };
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "MarketingAI",
+  "url": "https://marketing-ai-psi-nine.vercel.app",
+  "description": "MarketingAI sets up an automated marketing system for Australian small businesses — AI Content Engine, Outbound Lead Sequence, and Email Nurture Sequence — in under a week for $149 AUD.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "url": "https://calendly.com/getmarketingai/30min"
+  },
+  "areaServed": ["AU", "US", "GB", "CA", "NZ"]
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Marketing System Setup",
+  "provider": {
+    "@type": "Organization",
+    "name": "MarketingAI"
+  },
+  "description": "Done-with-you marketing system setup including AI Content Engine, Outbound Lead Sequence, and Email Nurture Sequence. Configured to your business and delivered in under 7 days.",
+  "offers": {
+    "@type": "Offer",
+    "price": "149",
+    "priceCurrency": "AUD",
+    "url": "https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
+  },
+  "areaServed": ["AU", "US", "GB", "CA", "NZ"]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "MarketingAI",
+  "url": "https://marketing-ai-psi-nine.vercel.app"
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -17,6 +56,18 @@ export default function RootLayout({
   return (
     <html lang="en-AU">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         {/* Google AdSense - Lesson #17 */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076137753154472"
           crossOrigin="anonymous"></script>
