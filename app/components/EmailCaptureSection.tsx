@@ -29,20 +29,12 @@ export default function EmailCaptureSection() {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: params.toString()
       });
-    } catch {
-      // Fallback to mailto on network error
-      const subject = encodeURIComponent('MarketingAI Early Access: ' + name);
-      const body = encodeURIComponent(
-        'New early access signup:\n\n' +
-        'Business name: ' + name + '\n' +
-        'Industry: ' + type + '\n' +
-        'Email: ' + email + '\n\n' +
-        '\u2014 Submitted via marketingai landing page (MailerLite fallback)'
-      );
-      window.location.href = 'mailto:getmarketingai@gmail.com?subject=' + subject + '&body=' + body;
+    } catch (error) {
+      // Log error but don't block redirect
+      console.error('MailerLite submission failed:', error);
     }
 
-    // Redirect to checklist download page
+    // Always redirect to checklist download page
     window.location.href = 'https://marketingai-checklist.vercel.app/?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name);
 
     setSubmitted(true);
