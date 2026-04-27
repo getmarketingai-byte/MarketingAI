@@ -11,16 +11,38 @@ export default function ChecklistPage() {
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
+    const email = String(formData.get("email"));
+    const name = String(formData.get("name"));
+    const industry = String(formData.get("industry"));
     const data = {
-      industry: formData.get("industry"),
+      industry,
       audience: formData.get("audience"),
       offer: formData.get("offer"),
       timeline: formData.get("timeline"),
-      name: formData.get("name"),
-      email: formData.get("email"),
+      name,
+      email,
       company: formData.get("company") || "(not provided)",
       submitted_at: new Date().toISOString()
     };
+
+    // Submit to MailerLite
+    const ML_ENDPOINT = 'https://assets.mailerlite.com/jsonp/2282416/forms/185339817098216933/subscribe';
+    const params = new URLSearchParams();
+    params.append('fields[email]', email);
+    params.append('fields[name]', name);
+    params.append('fields[last_name]', industry);
+    params.append('ml-submit', '1');
+    params.append('anticsrf', 'true');
+
+    try {
+      await fetch(ML_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: params.toString()
+      });
+    } catch (error) {
+      console.error('MailerLite submission failed:', error);
+    }
 
     console.log("Checklist submission:", data);
     setSubmitted(true);
