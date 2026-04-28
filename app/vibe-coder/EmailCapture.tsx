@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 
-const MAILERLITE_ENDPOINT = 'https://assets.mailerlite.com/jsonp/2282416/forms/185339817098216933/subscribe';
+const ACCOUNT_ID = '2282416';
+const FORM_ID = '185339817098216933';
 
 export default function VibeCoderEmailCapture() {
   const [submitted, setSubmitted] = useState(false);
@@ -10,34 +11,135 @@ export default function VibeCoderEmailCapture() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!project || !email) return;
     setLoading(true);
+    subscribeViaJSONP(email, project);
+  }
 
-    const params = new URLSearchParams();
-    params.append('fields[email]', email);
-    params.append('fields[name]', project);
-    params.append('fields[last_name]', 'vibe-coder');
-    params.append('ml-submit', '1');
-    params.append('anticsrf', 'true');
+  function subscribeViaJSONP(em: string, proj: string) {
+    const cb = 'mlcb_' + Date.now();
+    const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${FORM_ID}/subscribe`;
+    const postData = 'email=' + encodeURIComponent(em) + '&fields[name]=' + encodeURIComponent(proj) + '&fields[last_name]=vibe-coder&ml-submit=1';
 
-    try {
-      await fetch(MAILERLITE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString()
-      });
-    } catch {
-      // ignore network errors — subscriber still gets redirect
+    (window as any)[cb] = () => { cleanup(); redirect(em, proj); };
+
+    let timeout: ReturnType<typeof setTimeout>;
+    const cleanup = () => {
+      clearTimeout(timeout);
+      delete (window as any)[cb];
+      const s = document.getElementById(cb);
+      if (s) s.remove();
+    };
+
+    timeout = setTimeout(() => { cleanup(); redirect(em, proj); }, 8000);
+
+    const script = document.createElement('script');
+    script.id = cb;
+    script.src = endpoint + '?callback=' + cb + '&' + postData;
+    script.onerror = () => { cleanup(); redirect(em, proj); };
+    document.head.appendChild(script);
+  }
+
+  function redirect(em: string, proj: string) {
+    setSubmitted(true);
+    window.location.href = 'https://marketingai-checklist.vercel.app/?email=' + encodeURIComponent(em) + '&name=' + encodeURIComponent(proj);
+    setLoading(false);
+  }
+
+  function subscribeViaJSONP(em: string, nm: string) {
+    const cb = 'ml_cb_' + Date.now() + '_' + Math.round(Math.random() * 1000000);
+    const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${FORM_ID}/subscribe`;
+    const url = endpoint + '?callback=' + cb + '&email=' + encodeURIComponent(em) + '&fields[name]=' + encodeURIComponent(nm) + '&fields[last_name]=vibe-coder&ml-submit=1';
+
+    (window as any)[cb] = () => {
+      cleanup(cb);
+      redirect(em, nm);
+    };
+
+    const script = document.createElement('script');
+    script.src = url;
+    script.onerror = () => { cleanup(cb); redirect(em, nm); };
+    document.head.appendChild(script);
+
+    setTimeout(() => { cleanup(cb); redirect(em, nm); }, 8000);
+
+    function cleanup(c: string) {
+      delete (window as any)[c];
+      script.remove();
     }
+  }
 
-    window.location.href =
-      'https://marketingai-checklist.vercel.app/?email=' +
-      encodeURIComponent(email) +
-      '&name=' +
-      encodeURIComponent(project);
+  function redirect(em: string, nm: string) {
+    window.location.href = 'https://marketingai-checklist.vercel.app/?email=' + encodeURIComponent(em) + '&name=' + encodeURIComponent(nm);
+  }
 
+  function subscribeViaJSONP(email: string, project: string) {
+    const callbackName = 'ml_vc_' + Date.now();
+    const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${FORM_ID}/subscribe`;
+    const postData = 'email=' + encodeURIComponent(email) + '&fields[name]=' + encodeURIComponent(project) + '&fields[last_name]=vibe-coder&ml-submit=1';
+
+    (window as any)[callbackName] = () => {
+      cleanup();
+      setSubmitted(true);
+      window.location.href = 'https://marketingai-checklist.vercel.app/?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(project);
+    };
+
+    let timeout: ReturnType<typeof setTimeout>;
+    const cleanup = () => {
+      clearTimeout(timeout);
+      delete (window as any)[callbackName];
+      const s = document.getElementById(callbackName);
+      if (s) s.remove();
+    };
+
+    timeout = setTimeout(() => {
+      cleanup();
+      fallback(email, project);
+    }, 8000);
+
+    const script = document.createElement('script');
+    script.id = callbackName;
+    script.src = endpoint + '?callback=' + callbackName + '&' + postData;
+    script.onerror = () => { cleanup(); fallback(email, project); };
+    document.head.appendChild(script);
+  }
+
+  function fallback(email: string, project: string) {
+    setSubmitted(true);
+    window.location.href = 'mailto:getmarketingai@gmail.com?subject=' + encodeURIComponent('MarketingAI Vibe Coder: ' + project) + '&body=' + encodeURIComponent('Project: ' + project + '\nEmail: ' + email);
+  }
+
+  function subscribeViaJSONP(email: string, name: string) {
+    const callbackName = 'ml_cb_' + Date.now();
+    const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${FORM_ID}/subscribe`;
+    const postData = 'email=' + encodeURIComponent(email) + '&fields[name]=' + encodeURIComponent(name) + '&fields[last_name]=vibe-coder&ml-submit=1';
+
+    (window as any)[callbackName] = () => {
+      cleanup();
+      redirect(email, name);
+    };
+
+    let timeout: ReturnType<typeof setTimeout>;
+    const cleanup = () => {
+      clearTimeout(timeout);
+      delete (window as any)[callbackName];
+      const s = document.getElementById(callbackName);
+      if (s) s.remove();
+    };
+
+    timeout = setTimeout(() => { cleanup(); redirect(email, name); }, 8000);
+
+    const script = document.createElement('script');
+    script.id = callbackName;
+    script.src = endpoint + '?callback=' + callbackName + '&' + postData;
+    script.onerror = () => { cleanup(); redirect(email, name); };
+    document.head.appendChild(script);
+  }
+
+  function redirect(email: string, name: string) {
+    window.location.href = 'https://marketingai-checklist.vercel.app/?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name);
     setSubmitted(true);
     setLoading(false);
   }

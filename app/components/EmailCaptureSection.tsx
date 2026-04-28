@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 
-const MAILERLITE_ENDPOINT = 'https://assets.mailerlite.com/jsonp/2282416/forms/185339817098216933/subscribe';
+const ACCOUNT_ID = '2282416';
+const FORM_ID = '185339817098216933';
+const BASE_URL = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${FORM_ID}/subscribe`;
 
 export default function EmailCaptureSection() {
   const [submitted, setSubmitted] = useState(false);
@@ -11,34 +13,54 @@ export default function EmailCaptureSection() {
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent) {
+  function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!name || !type || !email) return;
     setLoading(true);
+    subscribeViaJSONP(email, name, type);
+  }
 
-    const params = new URLSearchParams();
-    params.append('fields[email]', email);
-    params.append('fields[name]', name);
-    params.append('fields[last_name]', type);
-    params.append('ml-submit', '1');
-    params.append('anticsrf', 'true');
+  function subscribeViaJSONP(email: string, name: string, type: string) {
+    const callbackName = 'ml_cb_' + Date.now() + '_' + Math.round(Math.random() * 1000000);
+    const url = BASE_URL + '?callback=' + callbackName +
+      '&email=' + encodeURIComponent(email) +
+      '&fields[name]=' + encodeURIComponent(name) +
+      '&fields[last_name]=' + encodeURIComponent(type) +
+      '&ml-submit=1';
 
-    try {
-      await fetch(MAILERLITE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString()
-      });
-    } catch (error) {
-      // Log error but don't block redirect
-      console.error('MailerLite submission failed:', error);
+    (window as any)[callbackName] = (response: any) => {
+      cleanup();
+      redirect(email, name);
+    };
+
+    const script = document.createElement('script');
+    script.src = url;
+    script.onerror = () => {
+      cleanup();
+      fallback(email, name);
+    };
+    document.head.appendChild(script);
+
+    const timeout = setTimeout(() => {
+      cleanup();
+      fallback(email, name);
+    }, 8000);
+
+    function cleanup() {
+      clearTimeout(timeout);
+      delete (window as any)[callbackName];
+      script.remove();
     }
+  }
 
-    // Always redirect to checklist download page
+  function redirect(email: string, name: string) {
     window.location.href = 'https://marketingai-checklist.vercel.app/?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name);
+  }
 
-    setSubmitted(true);
-    setLoading(false);
+  function fallback(email: string, name: string) {
+    const subject = encodeURIComponent('MarketingAI: ' + name);
+    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email);
+    window.location.href = 'mailto:getmarketingai@gmail.com?subject=' + subject + '&body=' + body;
   }
 
   return (
