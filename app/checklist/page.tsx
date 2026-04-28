@@ -2,6 +2,9 @@
 
 import { useState } from "react";
 
+const ACCOUNT_ID = '2282416';
+const FORM_ID = '185339817098216933';
+
 export default function ChecklistPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -25,27 +28,25 @@ export default function ChecklistPage() {
       submitted_at: new Date().toISOString()
     };
 
-    // Submit to MailerLite
-    const ML_ENDPOINT = 'https://assets.mailerlite.com/jsonp/2282416/forms/185339817098216933/subscribe';
-    const params = new URLSearchParams();
-    params.append('fields[email]', email);
-    params.append('fields[name]', name);
-    params.append('fields[last_name]', industry);
-    params.append('ml-submit', '1');
-    params.append('anticsrf', 'true');
-
-    try {
-      await fetch(ML_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: params.toString()
-      });
-    } catch (error) {
-      console.error('MailerLite submission failed:', error);
-    }
-
     console.log("Checklist submission:", data);
     setSubmitted(true);
+
+    const endpoint = `https://assets.mailerlite.com/jsonp/${ACCOUNT_ID}/forms/${FORM_ID}/subscribe`;
+    const cb = 'ml_cl_' + Date.now();
+    const url = endpoint + '?callback=' + cb + '&email=' + encodeURIComponent(email) + '&fields[name]=' + encodeURIComponent(name) + '&fields[last_name]=' + encodeURIComponent(industry) + '&ml-submit=1';
+
+    (window as any)[cb] = () => {
+      delete (window as any)[cb];
+    };
+
+    const script = document.createElement('script');
+    script.src = url;
+    document.head.appendChild(script);
+
+    setTimeout(() => {
+      delete (window as any)[cb];
+      script.remove();
+    }, 8000);
 
     setTimeout(() => {
       window.location.href = "https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00";
