@@ -55,7 +55,7 @@ export default function EmailCaptureSection() {
 
   function redirect(email: string, name: string) {
     if (typeof (window as any).gtag === 'function') {
-      (window as any).gtag('event', 'email_capture_submit', { form_id: 'early-access' });
+      (window as any).gtag('event', 'form_submit', { form_id: 'early-access', page_title: 'Home' });
     }
     window.location.href = 'https://marketingai-checklist.vercel.app/?email=' + encodeURIComponent(email) + '&name=' + encodeURIComponent(name);
   }

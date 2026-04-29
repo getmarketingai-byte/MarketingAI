@@ -38,7 +38,7 @@ export default function Home() {
              target="_blank"
              rel="noopener noreferrer"
              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors"
-             onClick={() => trackEvent('cta_click', { button_text: 'Get Started', price: 149 })}
+             onClick={() => trackEvent('cta_click_stripe', { page_title: 'Home', price: 149 })}
            >
              Get started &mdash; $149 AUD
            </a>
@@ -122,7 +122,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors"
-              onClick={() => trackEvent('stripe_link_click', { amount: 149 })}
+              onClick={() => trackEvent('cta_click_stripe', { page_title: 'Home', price: 149 })}
             >
               Buy now &mdash; $149 AUD
             </a>
@@ -131,7 +131,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block border border-white/30 hover:border-white text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
-              onClick={() => trackEvent('calendly_click', { link_type: 'calendly' })}
+              onClick={() => trackEvent('cta_click_calendly', { page_title: 'Home', link_type: 'calendly' })}
             >
               Book a free call first
             </a>
@@ -162,7 +162,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg transition-colors"
-              onClick={() => trackEvent('cta_click', { button_text: 'Get Started', price: 149 })}
+              onClick={() => trackEvent('cta_click_stripe', { page_title: 'Home', price: 149 })}
             >
               Get started &mdash; $149 AUD
             </a>
@@ -171,7 +171,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block border border-gray-300 hover:border-gray-600 text-gray-700 font-semibold px-8 py-4 rounded-lg transition-colors"
-              onClick={() => trackEvent('calendly_click', { link_type: 'calendly' })}
+              onClick={() => trackEvent('cta_click_calendly', { page_title: 'Home', link_type: 'calendly' })}
             >
               Book a free call first
             </a>
