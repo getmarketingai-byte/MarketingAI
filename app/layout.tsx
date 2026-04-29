@@ -82,11 +82,20 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className="bg-gray-50 text-gray-900 min-h-screen">
-        {children}
-        <Analytics />
-        <SpeedInsights />
-      </body>
+       <body className="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
+         {children}
+         <footer style={{ background: '#1a1a2e', color: 'rgba(255,255,255,0.5)', textAlign: 'center', padding: '20px', fontSize: '0.82rem' }}>
+           <p>
+             <a href="/about" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>About</a> |
+             <a href="/privacy" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>Privacy Policy</a> |
+             <a href="/support" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>Contact</a> |
+             <a href="https://calendly.com/getmarketingai/30min" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>Book a Call</a>
+           </p>
+           <p style={{ marginTop: '8px' }}>© 2026 MarketingAI. Results are indicative only. Marketing outcomes are not guaranteed.</p>
+         </footer>
+         <Analytics />
+         <SpeedInsights />
+       </body>
     </html>
   );
 }
