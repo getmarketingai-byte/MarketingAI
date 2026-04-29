@@ -37,8 +37,8 @@ AI-assisted calculators and content tools for marketers:
 
 **SEO Resources (industry-specific):**
 - [Allied Health Practice Marketing Guide](https://marketingai-allied-health.vercel.app/)
-- [Mortgage Broker Marketing Guide](https://marketingai-seo-mortgage-brokers-pxf2wgyim.vercel.app/)
-- [Real Estate Agent Marketing Guide](https://marketingai-seo-real-estate-pkow82njq.vercel.app/)
+- [Mortgage Broker Marketing Guide](https://marketingai-seo-mortgage-brokers.vercel.app/)
+- [Real Estate Agent Marketing Guide](https://marketingai-seo-real-estate.vercel.app/)
 - [Commercial Tradies Marketing Guide](https://marketingai-seo-tradies-g6xjqa76m.vercel.app/)
 - [Coaches & Consultants Marketing Guide](https://marketingai-coaches-consultants.vercel.app/)
 
