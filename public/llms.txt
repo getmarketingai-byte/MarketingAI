@@ -21,14 +21,14 @@ Small business owners in Australia, US, UK, Canada, and New Zealand. Best fit: c
 
 ## Free Utility Tools
 
-AI-assisted calculators and content tools for marketers:
+AI-assisted Calculators and content tools for marketers:
 
 - [Email Open Rate Calculator](https://email-open-rate.vercel.app/) — estimate expected email open rates
 - [Marketing ROI Calculator](https://roi-calculator-swart-one.vercel.app/) — calculate return on marketing spend
 - [ROAS Calculator](https://roas-calc.vercel.app/) — return on ad spend analysis
 - [Ad Spend Calculator](https://marketingai-ad-spend-calculator.vercel.app/) — plan ad budget impact
 - [Social Media ROI Calculator](https://marketingai-social-media-roi-calculator.vercel.app/) — measure social media performance
-- [Social Media Follower Growth Rate Calculator](https://follower-growth-calculator.vercel.app/) — forecast follower growth
+- [Social Media Follower Growth Rate Calculator](https://Follower-growth-calculator.vercel.app/) — forecast Follower growth
 - [Social Media Post Length Optimizer](https://marketingai-post-length-optimizer-8xf3paa04.vercel.app/) — optimize content for each platform
 - [Social Media Character Counter](https://character-counter-phi-nine.vercel.app/) — count characters for platform limits
 - [Website Speed Impact Calculator](https://marketingai-website-speed-calculator.vercel.app/) — understand site speed impact on conversions
@@ -50,7 +50,7 @@ AI-assisted calculators and content tools for marketers:
 
 ## What We Don't Promise
 
-- Guaranteed leads, revenue, or follower growth
+- Guaranteed leads, revenue, or Follower growth
 - Ongoing management or posting
 - Paid ad campaigns or media buying
 

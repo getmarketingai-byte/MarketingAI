@@ -63,7 +63,7 @@ Early-bird pricing available: $99 AUD for first 2 clients.
 ### What We Don't Do (And What We Don't Promise)
 
 We explicitly do NOT promise or provide:
-- Guaranteed leads, revenue, or follower growth (too many variables outside our control)
+- Guaranteed leads, revenue, or Follower growth (too many variables outside our control)
 - Ongoing posting or management (this is your business, not ours)
 - Paid ad campaigns or media buying
 - Website builds or design services
@@ -77,7 +77,7 @@ We explicitly do NOT promise or provide:
 **Best-fit industries:**
 - Mortgage brokers and finance professionals
 - Immigration lawyers and migration agents
-- Business coaches and management consultants
+- Business coaches and management Consultants
 - Allied health practitioners (physios, chiros, psychologists)
 - Commercial tradies seeking B2B contracts or government work
 
@@ -106,7 +106,7 @@ We've built a suite of free utility tools for marketers:
 - **ROAS Calculator** — Calculate return on ad spend to justify paid marketing budgets
 - **Ad Spend Calculator** — Model different budget scenarios and their impact on leads and revenue
 - **Social Media ROI Calculator** — Measure the ROI of social media content and engagement
-- **Social Media Follower Growth Rate Calculator** — Forecast follower growth based on engagement and posting frequency
+- **Social Media Follower Growth Rate Calculator** — Forecast Follower growth based on engagement and posting frequency
 - **Website Speed Impact Calculator** — Understand how site speed degradation affects conversion rates and revenue
 
 ### Content Tools
