@@ -45,7 +45,12 @@ const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "MarketingAI",
-  "url": "https://marketing-ai-psi-nine.vercel.app"
+  "url": "https://marketing-ai-psi-nine.vercel.app",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://marketing-ai-psi-nine.vercel.app/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
 };
 
 export default function RootLayout({
