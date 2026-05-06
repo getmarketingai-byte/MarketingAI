@@ -34,7 +34,7 @@ function getTransporter() {
     secure: false,
     auth: {
       user: 'getmarketingai@gmail.com',
-      pass: process.env.GMAIL_APP_PASSWORD || 'aoeg qisu hzye aqtd',
+      pass: process.env.GMAIL_APP_PASSWORD,
     },
   });
 }
