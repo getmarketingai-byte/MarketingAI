@@ -61,12 +61,12 @@ function SuccessContent() {
           <div className="text-4xl mb-3">{step === "checklist" ? "✅" : "🎯"}</div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">
             {step === "checklist"
-              ? (name ? \`You are in, \${name}!\` : "You are in!")
+              ? (name ? `You are in, ${name}!` : "You are in!")
               : "Thanks — you are all set!"}
           </h1>
           <p className="text-gray-500 text-sm leading-relaxed">
             {step === "checklist"
-              ? (email ? \`Confirmation sent to \${email}.\` : "Check your inbox for confirmation.")
+              ? (email ? `Confirmation sent to ${email}.` : "Check your inbox for confirmation.")
               : "We have what we need. Here is how to get started."}
           </p>
         </div>
