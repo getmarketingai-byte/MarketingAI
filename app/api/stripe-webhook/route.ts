@@ -191,6 +191,86 @@ ${deliveryStatus !== 'delivered' ? '<p><strong>Action:</strong> Manually deliver
   });
 }
 
+// ---- AUDIT PRODUCT ($49) ----
+
+async function sendAuditAdminNotification(
+  customerEmail: string,
+  customerName: string,
+  sessionId: string,
+  metadata: Record<string, string>
+) {
+  const transporter = getTransporter();
+
+  const row = (label: string, value: string) =>
+    `<tr><td style="padding: 8px; border: 1px solid #ddd; font-weight: bold; white-space: nowrap;">${label}</td><td style="padding: 8px; border: 1px solid #ddd;">${value || '—'}</td></tr>`;
+
+  await transporter.sendMail({
+    from: '"MarketingAI Webhook" <getmarketingai@gmail.com>',
+    to: 'getmarketingai@gmail.com',
+    subject: `💰 New AI Audit purchase: ${customerName} ($49 AUD)`,
+    html: `<h2>New AI Marketing Audit purchase</h2>
+<p>Deliver a 3-page audit within 24 hours to: <strong>${customerEmail}</strong></p>
+<table style="border-collapse: collapse; width: 100%; margin: 16px 0;">
+  ${row('Name', customerName)}
+  ${row('Email', customerEmail)}
+  ${row('Business', metadata.business_name)}
+  ${row('Industry', metadata.industry)}
+  ${row('Marketing channels', metadata.marketing_channels)}
+  ${row('Challenge', metadata.challenge)}
+  ${row('Website', metadata.website_url)}
+  ${row('Session ID', sessionId)}
+  ${row('Time', new Date().toISOString())}
+</table>
+<p style="background: #fff3cd; padding: 12px; border-radius: 6px;">
+  <strong>Action required:</strong> Generate and email the 3-page audit to ${customerEmail} within 24 hours.
+  Include: (1) Marketing gaps analysis, (2) 3 actionable recommendations, (3) 30-day priority roadmap.
+</p>`,
+    text: `New AI Audit: ${customerName} (${customerEmail}) - $49 AUD\n\nBusiness: ${metadata.business_name}\nIndustry: ${metadata.industry}\nChannels: ${metadata.marketing_channels}\nChallenge: ${metadata.challenge}\nWebsite: ${metadata.website_url}\n\nDeliver audit within 24 hours.`,
+  });
+}
+
+async function sendAuditClientConfirmation(customerEmail: string, customerName: string) {
+  const transporter = getTransporter();
+  const firstName = customerName?.split(' ')[0] || 'there';
+
+  await transporter.sendMail({
+    from: '"MarketingAI" <getmarketingai@gmail.com>',
+    to: customerEmail,
+    subject: 'Your AI Marketing Audit is being prepared — MarketingAI',
+    html: `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #1a1a1a;">
+  <div style="background: linear-gradient(135deg, #0070f3, #7928ca); padding: 32px; border-radius: 12px; text-align: center; margin-bottom: 32px;">
+    <h1 style="color: white; margin: 0; font-size: 26px;">Your AI Marketing Audit</h1>
+    <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0;">Payment confirmed. Audit incoming within 24 hours.</p>
+  </div>
+  <p style="font-size: 16px;">Hi ${firstName},</p>
+  <p style="font-size: 15px; line-height: 1.6;">Thanks for your payment — we&rsquo;ve received your business details and are preparing your personalised AI Marketing Audit.</p>
+  <div style="background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 24px 0;">
+    <h3 style="margin: 0 0 12px; font-size: 15px;">Your audit will include:</h3>
+    <ul style="font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px;">
+      <li><strong>Marketing gaps analysis</strong> — specific to your business</li>
+      <li><strong>3 actionable recommendations</strong> — concrete steps you can take this week</li>
+      <li><strong>30-day priority roadmap</strong> — what to do and when</li>
+    </ul>
+  </div>
+  <p style="font-size: 15px; line-height: 1.6;">Expect your audit in this inbox within 24 hours.</p>
+  <p style="font-size: 14px; color: #666; line-height: 1.6;">
+    <strong>Want the full marketing system built for you?</strong> Reply to this email and we&rsquo;ll apply your $49 as credit toward the $149 full setup.
+  </p>
+  <p style="font-size: 15px;">Talk soon,<br><strong>The MarketingAI Team</strong></p>
+  <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 32px 0;">
+  <p style="font-size: 12px; color: #888; text-align: center;">
+    MarketingAI · Australian Marketing Automation<br>
+    <a href="https://marketing-ai-psi-nine.vercel.app" style="color: #888;">marketing-ai-psi-nine.vercel.app</a>
+  </p>
+</body>
+</html>`,
+    text: `Hi ${firstName},\n\nThanks for your payment. Your AI Marketing Audit is being prepared and will be in your inbox within 24 hours.\n\nYour audit includes:\n- Marketing gaps analysis\n- 3 actionable recommendations\n- 30-day priority roadmap\n\nWant the full system built? Reply and we'll apply your $49 as credit.\n\nThe MarketingAI Team`,
+  });
+}
+
 // GET — health check
 export async function GET() {
   return NextResponse.json({ status: 'ok', endpoint: '/api/stripe-webhook' });
@@ -246,46 +326,70 @@ export async function POST(request: NextRequest) {
 
     const customerEmail = session.customer_details?.email;
     const customerName = session.customer_details?.name || 'New Client';
-    const amountTotal = session.amount_total || 14900;
+    const amountTotal = session.amount_total || 0;
+    const productType = session.metadata?.product_type;
 
-    console.log(`New payment: ${customerName} <${customerEmail}>`);
+    console.log(`New payment: ${customerName} <${customerEmail}> — $${(amountTotal / 100).toFixed(2)} AUD — product: ${productType || 'setup'}`);
 
     if (!customerEmail) {
       console.warn('No customer email in session:', session.id);
       return NextResponse.json({ received: true });
     }
 
-    const client: ClientData = {
-      email: customerEmail,
-      name: customerName,
-      // Personalisation from Stripe checkout metadata (if pre-filled)
-      industry: session.metadata?.industry,
-      challenge: session.metadata?.challenge,
-      company: session.metadata?.company,
-    };
-
-    let deliveryStatus: 'delivered' | 'fallback' | 'failed' = 'fallback';
-
-    try {
-      console.log('Generating marketing systems for:', customerEmail);
-      const systems = await generateMarketingSystems(client);
-      await sendDeliveryEmail(client, systems.contentCalendar, systems.outreachSequence, systems.emailNurture);
-      deliveryStatus = 'delivered';
-      console.log(`Systems delivered to ${customerEmail}`);
-    } catch (genErr) {
-      console.error('Generation/delivery failed, sending fallback:', genErr);
+    // Branch: $49 AI Marketing Audit vs $149 full setup
+    if (productType === 'audit' || amountTotal === 4900) {
+      // Handle AI Marketing Audit purchase
       try {
-        await sendFallbackWelcomeEmail(customerEmail, customerName);
-      } catch (fallbackErr) {
-        console.error('Fallback email also failed:', fallbackErr);
-        deliveryStatus = 'failed';
+        await sendAuditClientConfirmation(customerEmail, customerName);
+        console.log(`Audit confirmation sent to ${customerEmail}`);
+      } catch (err) {
+        console.error('Failed to send audit client confirmation:', err);
       }
-    }
 
-    try {
-      await sendAdminNotification(customerEmail, customerName, amountTotal, session.id, deliveryStatus);
-    } catch (adminErr) {
-      console.error('Admin notification failed:', adminErr);
+      try {
+        await sendAuditAdminNotification(
+          customerEmail,
+          customerName,
+          session.id,
+          session.metadata || {}
+        );
+        console.log('Audit admin notification sent');
+      } catch (err) {
+        console.error('Failed to send audit admin notification:', err);
+      }
+    } else {
+      // Handle full marketing system setup ($149)
+      const client: ClientData = {
+        email: customerEmail,
+        name: customerName,
+        industry: session.metadata?.industry,
+        challenge: session.metadata?.challenge,
+        company: session.metadata?.company,
+      };
+
+      let deliveryStatus: 'delivered' | 'fallback' | 'failed' = 'fallback';
+
+      try {
+        console.log('Generating marketing systems for:', customerEmail);
+        const systems = await generateMarketingSystems(client);
+        await sendDeliveryEmail(client, systems.contentCalendar, systems.outreachSequence, systems.emailNurture);
+        deliveryStatus = 'delivered';
+        console.log(`Systems delivered to ${customerEmail}`);
+      } catch (genErr) {
+        console.error('Generation/delivery failed, sending fallback:', genErr);
+        try {
+          await sendFallbackWelcomeEmail(customerEmail, customerName);
+        } catch (fallbackErr) {
+          console.error('Fallback email also failed:', fallbackErr);
+          deliveryStatus = 'failed';
+        }
+      }
+
+      try {
+        await sendAdminNotification(customerEmail, customerName, amountTotal, session.id, deliveryStatus);
+      } catch (adminErr) {
+        console.error('Admin notification failed:', adminErr);
+      }
     }
   }
 
