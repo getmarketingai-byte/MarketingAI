@@ -8,8 +8,8 @@ export default function AboutPage() {
     <main className="min-h-screen bg-white text-gray-900">
       <nav className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
         <a href="/" className="font-extrabold text-lg tracking-tight">MarketingAI</a>
-        <a href="https://calendly.com/getmarketingai/30min" target="_blank" rel="noopener noreferrer" className="text-xs font-bold bg-blue-600 text-white px-3 py-1 rounded-full tracking-wide">
-          Book a Call
+        <a href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00" target="_blank" rel="noopener noreferrer" className="text-xs font-bold bg-blue-600 text-white px-3 py-1 rounded-full tracking-wide">
+          Get Started — $149
         </a>
       </nav>
 
@@ -21,8 +21,8 @@ export default function AboutPage() {
         <p className="text-lg text-gray-500 mb-10 max-w-xl mx-auto">
           We set up the systems so you can focus on building your product — not figuring out marketing.
         </p>
-        <a href="https://calendly.com/getmarketingai/30min" target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors">
-          Book a free call
+        <a href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00" target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors">
+          Get started — $149 AUD
         </a>
       </section>
 
@@ -77,9 +77,6 @@ export default function AboutPage() {
           <div className="flex flex-wrap gap-3 justify-center">
             <a href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00" target="_blank" rel="noopener noreferrer" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors">
               Get started — $149 AUD
-            </a>
-            <a href="https://calendly.com/getmarketingai/30min" target="_blank" rel="noopener noreferrer" className="inline-block border border-white/30 hover:border-white text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors">
-              Book a free call first
             </a>
           </div>
         </div>

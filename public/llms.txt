@@ -44,7 +44,6 @@ AI-assisted Calculators and content tools for marketers:
 
 ## Get Started
 
-- **Book a discovery call:** https://calendly.com/getmarketingai/30min
 - **Purchase MarketingAI system:** https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00
 - **Landing page:** https://marketing-ai-psi-nine.vercel.app/
 

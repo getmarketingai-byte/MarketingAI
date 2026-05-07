@@ -146,14 +146,6 @@ function SuccessContent() {
                 >
                   Get Started — $149 AUD
                 </a>
-                <a
-                  href="https://calendly.com/getmarketingai/30min"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border-2 border-blue-400 text-white font-semibold text-sm px-5 py-3 rounded-lg hover:border-white transition-colors text-center"
-                >
-                  Book a Free 30-min Call
-                </a>
               </div>
               <p className="mt-4 text-xs text-blue-200">Results are indicative only. No guaranteed outcomes.</p>
             </div>

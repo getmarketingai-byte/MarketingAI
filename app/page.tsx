@@ -126,15 +126,6 @@ export default function Home() {
             >
               Buy now &mdash; $149 AUD
             </a>
-            <a
-              href="https://calendly.com/getmarketingai/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block border border-white/30 hover:border-white text-white font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
-              onClick={() => trackEvent('cta_click_calendly', { page_title: 'Home', link_type: 'calendly' })}
-            >
-              Book a free call first
-            </a>
           </div>
           <p className="text-gray-500 text-xs mt-4">
             No monthly retainer. No minimum term. Pay once, own the setup.
@@ -165,15 +156,6 @@ export default function Home() {
               onClick={() => trackEvent('cta_click_stripe', { page_title: 'Home', price: 149 })}
             >
               Get started &mdash; $149 AUD
-            </a>
-            <a
-              href="https://calendly.com/getmarketingai/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block border border-gray-300 hover:border-gray-600 text-gray-700 font-semibold px-8 py-4 rounded-lg transition-colors"
-              onClick={() => trackEvent('cta_click_calendly', { page_title: 'Home', link_type: 'calendly' })}
-            >
-              Book a free call first
             </a>
           </div>
         </div>

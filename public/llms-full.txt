@@ -147,15 +147,13 @@ We've built a suite of free utility tools for marketers:
 
 1. **Explore our free tools** at https://marketingai-tool-showcase-gwtdfub6l.vercel.app/
 2. **Read industry guides** relevant to your business
-3. **Book a discovery call** at https://calendly.com/getmarketingai/30min (no commitment)
-4. **Decide if the $149 system is right for you**
-5. **Purchase and deliver** via https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00
-6. **Hop on the call** and we build within a week
+3. **Decide if the $149 system is right for you**
+4. **Purchase and deliver** via https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00
+5. **Onboarding call scheduled** and we build within a week
 
 ## Get Started
 
 - **Landing page:** https://marketing-ai-psi-nine.vercel.app/
-- **Book a call:** https://calendly.com/getmarketingai/30min
 - **Purchase:** https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00
 
 ---
