@@ -4,9 +4,27 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from '@vercel/analytics/next';
 import Script from 'next/script';
 
+const siteUrl = "https://marketing-ai-psi-nine.vercel.app";
+
 export const metadata: Metadata = {
   title: "MarketingAI — AI-assisted marketing systems for Australian small businesses",
   description: "MarketingAI sets up three AI-assisted marketing systems for your Australian business: AI Content Engine, Outbound Lead Sequence, and Email Nurture Sequence. $149 AUD one-time setup. No lock-in.",
+  alternates: {
+    canonical: siteUrl,
+  },
+  openGraph: {
+    title: "MarketingAI — AI-assisted marketing systems for Australian small businesses",
+    description: "Done-with-you AI marketing system setup. Three coordinated systems built and handed over in under a week. $149 AUD one-time.",
+    url: siteUrl,
+    siteName: "MarketingAI",
+    locale: "en_AU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MarketingAI — AI-assisted marketing systems for Australian small businesses",
+    description: "Done-with-you AI marketing system setup. Three coordinated systems built and handed over in under a week. $149 AUD one-time.",
+  },
 };
 
 const organizationSchema = {
