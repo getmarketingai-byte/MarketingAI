@@ -50,6 +50,11 @@ export default function Home() {
            </a>
         </div>
         <p className="text-sm text-gray-400 mt-4">One-time setup fee. No lock-in. No monthly retainer.</p>
+        <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100 max-w-md mx-auto">
+          <p className="text-sm font-semibold text-gray-700 mb-1">Not sure yet?</p>
+          <a href="/audit" className="text-blue-600 hover:text-blue-800 font-bold text-sm" onClick={() => trackEvent('cta_click_audit', { page_title: 'Home', price: 49 })}>Try a $49 marketing audit first &rarr;</a>
+          <p className="text-xs text-gray-400 mt-1">Get a personalised report. Apply the $49 toward the full $149 setup.</p>
+        </div>
       </section>
 
       {/* PROBLEM */}
