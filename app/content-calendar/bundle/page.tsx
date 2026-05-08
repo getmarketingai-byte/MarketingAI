@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Content Calendar Bundle \u2014 All 4 Niches | MarketingAI',
+  title: 'Content Calendar Bundle \u2014 4 Niches | MarketingAI',
   description:
-    'Get all 4 LinkedIn content calendars in one bundle. Mortgage Brokers, Real Estate Agents, Personal Trainers & Accountants. $49 AUD \u2014 save 35% vs buying individually.',
+    'Get all 4 original LinkedIn content calendars in one bundle. Mortgage Brokers, Real Estate Agents, Personal Trainers & Accountants. $49 AUD \u2014 save 35% vs buying individually.',
 };
 
 export default function ContentCalendarBundlePage() {
@@ -14,6 +15,13 @@ export default function ContentCalendarBundlePage() {
     { name: 'Real Estate Agents', slug: 'real-estate-agents' },
     { name: 'Personal Trainers', slug: 'personal-trainers' },
     { name: 'Accountants', slug: 'accountants' },
+  ];
+
+  const additionalNiches = [
+    { name: 'Dentists', slug: 'dentists' },
+    { name: 'Cafes & Restaurants', slug: 'cafes-restaurants' },
+    { name: 'Photographers', slug: 'photographers' },
+    { name: 'Hair & Beauty Salons', slug: 'hair-beauty' },
   ];
 
   return (
@@ -72,6 +80,30 @@ export default function ContentCalendarBundlePage() {
           <p className="text-gray-600">Individual price: <span className="line-through text-gray-400">$76 AUD</span> (4 &times; $19)</p>
           <p className="text-2xl font-extrabold text-gray-900">Bundle price: $49 AUD</p>
           <p className="text-green-600 font-bold">You save: $27 AUD (35% off)</p>
+        </div>
+      </section>
+
+      {/* More niches available */}
+      <section className="py-12 px-6 bg-white">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-xl font-extrabold text-gray-900 mb-2 text-center">
+            Need a different industry?
+          </h2>
+          <p className="text-gray-500 text-sm text-center mb-6">
+            We&rsquo;ve expanded the collection. Get any of these individually for $19 AUD each.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {additionalNiches.map((niche) => (
+              <Link
+                key={niche.slug}
+                href={`/content-calendar/${niche.slug}`}
+                className="bg-gray-50 border border-gray-200 rounded-xl p-4 text-center hover:border-blue-300 hover:bg-blue-50 transition-colors"
+              >
+                <p className="font-bold text-gray-900 text-sm">{niche.name}</p>
+                <p className="text-xs text-blue-600 mt-1">$19 AUD &rarr;</p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
