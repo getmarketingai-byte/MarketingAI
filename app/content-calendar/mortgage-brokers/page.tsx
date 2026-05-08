@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function MortgageBrokersContentCalendarPage() {
-  const stripeLink = process.env.NEXT_PUBLIC_STRIPE_CONTENT_CALENDAR_LINK || '#';
+  const stripeLink = 'https://buy.stripe.com/9B63cxgvXb0ddLd6pAbsc01';
 
   return (
     <main className="min-h-screen bg-white text-gray-900">

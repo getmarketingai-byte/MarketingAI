@@ -112,7 +112,7 @@ export default function RootLayout({
              <a href="/about" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>About</a> |
              <a href="/privacy" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>Privacy Policy</a> |
              <a href="/support" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>Contact</a> |
-             <a href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>Get Started — $149</a>
+             <a href="/audit" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>Get Marketing Audit — $49</a>
            </p>
            <p style={{ marginTop: '8px' }}>© 2026 MarketingAI. Results are indicative only. Marketing outcomes are not guaranteed.</p>
          </footer>
