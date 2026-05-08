@@ -50,10 +50,23 @@ export default function Home() {
            </a>
         </div>
         <p className="text-sm text-gray-400 mt-4">One-time setup fee. No lock-in. No monthly retainer.</p>
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100 max-w-md mx-auto">
-          <p className="text-sm font-semibold text-gray-700 mb-1">Not sure yet?</p>
-          <a href="/audit" className="text-blue-600 hover:text-blue-800 font-bold text-sm" onClick={() => trackEvent('cta_click_audit', { page_title: 'Home', price: 49 })}>Try a $49 marketing audit first &rarr;</a>
-          <p className="text-xs text-gray-400 mt-1">Get a personalised report. Apply the $49 toward the full $149 setup.</p>
+        <div className="mt-6 max-w-md mx-auto space-y-3">
+          <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
+            <p className="text-sm font-semibold text-gray-700 mb-1">Not sure yet?</p>
+            <a href="/audit" className="text-blue-600 hover:text-blue-800 font-bold text-sm" onClick={() => trackEvent('cta_click_audit', { page_title: 'Home', price: 49 })}>Try a $49 marketing audit first &rarr;</a>
+            <p className="text-xs text-gray-400 mt-1">Get a personalised report. Apply the $49 toward the full $149 setup.</p>
+          </div>
+          <div className="p-4 bg-green-50 rounded-lg border border-green-100">
+            <p className="text-sm font-semibold text-gray-700 mb-1">Not ready for a full audit? Start here.</p>
+            <a
+              href="https://buy.stripe.com/8x24gBa7z5FT8qT15gbsc07"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-700 hover:text-green-900 font-bold text-sm"
+              onClick={() => trackEvent('cta_click_quickstart', { page_title: 'Home', price: 9 })}
+            >Marketing Quick-Start Guide &mdash; $9 AUD &rarr;</a>
+            <p className="text-xs text-gray-400 mt-1">Top 5 channels, 30-day content outline, post templates &amp; positioning framework. Delivered instantly.</p>
+          </div>
         </div>
       </section>
 

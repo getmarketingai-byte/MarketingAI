@@ -105,6 +105,21 @@ export default function AuditPage() {
         </div>
       </section>
 
+      {/* QUICK-START ALTERNATIVE */}
+      <section className="max-w-xl mx-auto px-6 py-6">
+        <div className="bg-green-50 border border-green-200 rounded-lg p-5 text-center">
+          <p className="text-sm font-semibold text-gray-700 mb-1">Just need a quick start?</p>
+          <a
+            href="https://buy.stripe.com/8x24gBa7z5FT8qT15gbsc07"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-700 hover:text-green-900 font-bold text-sm"
+            onClick={() => trackEvent('cta_click_quickstart', { page_title: 'Audit', price: 9 })}
+          >Get your personalised marketing action plan for $9 &rarr;</a>
+          <p className="text-xs text-gray-500 mt-1">Top 5 channels, 30-day content calendar outline, post templates &amp; positioning framework — delivered instantly.</p>
+        </div>
+      </section>
+
       {/* FORM */}
       <section className="max-w-xl mx-auto px-6 py-16">
         <h2 className="text-2xl font-extrabold tracking-tight mb-2 text-center">Tell us about your business</h2>

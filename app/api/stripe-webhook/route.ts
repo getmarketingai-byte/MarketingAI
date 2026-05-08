@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
-import { generateMarketingSystems, ClientData } from '@/lib/generate-systems';
+import { generateMarketingSystems, generateQuickStartGuide, ClientData } from '@/lib/generate-systems';
 
 // Stripe webhook signature verification (manual — avoids stripe package dependency)
 function verifyStripeSignature(
@@ -271,6 +271,101 @@ async function sendAuditClientConfirmation(customerEmail: string, customerName: 
   });
 }
 
+// ---- QUICK-START GUIDE PRODUCT ($9) ----
+
+function formatQuickStartEmailHtml(
+  client: ClientData,
+  topChannels: string,
+  contentCalendarOutline: string,
+  socialPostTemplates: string,
+  competitorFramework: string
+): string {
+  const firstName = client.name?.split(' ')[0] || 'there';
+  const escape = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+  const section = (title: string, content: string, icon: string) =>
+    `<div style="margin: 28px 0; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden;">
+      <div style="background: linear-gradient(135deg, #059669, #0070f3); padding: 14px 22px;">
+        <h2 style="color: white; margin: 0; font-size: 17px;">${icon} ${title}</h2>
+      </div>
+      <div style="padding: 22px; background: #fafafa;">
+        <pre style="white-space: pre-wrap; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; line-height: 1.7; color: #333; margin: 0;">${escape(content)}</pre>
+      </div>
+    </div>`;
+
+  return `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 680px; margin: 0 auto; padding: 20px; color: #1a1a1a;">
+  <div style="background: linear-gradient(135deg, #059669, #0070f3); padding: 32px; border-radius: 12px; text-align: center; margin-bottom: 32px;">
+    <h1 style="color: white; margin: 0; font-size: 26px;">Your Marketing Quick-Start Guide Is Ready</h1>
+    <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0; font-size: 15px;">Built for ${escape(client.company || client.name)}</p>
+  </div>
+  <p style="font-size: 16px; line-height: 1.6;">Hi ${escape(firstName)},</p>
+  <p style="font-size: 15px; line-height: 1.6;">Your personalised Marketing Quick-Start Guide is ready. Use these four sections to hit the ground running this week.</p>
+  ${section('Top 5 Marketing Channels for Your Business', topChannels, '📡')}
+  ${section('30-Day Content Calendar Outline', contentCalendarOutline, '📅')}
+  ${section('3 Ready-to-Use Social Post Templates', socialPostTemplates, '✏️')}
+  ${section('Competitor Positioning Analysis Framework', competitorFramework, '🔍')}
+  <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 20px; margin: 32px 0;">
+    <h3 style="margin: 0 0 8px; color: #059669; font-size: 16px;">Ready to go deeper?</h3>
+    <p style="font-size: 14px; line-height: 1.7; margin: 0 0 12px;">This guide gives you the framework — our $49 AI Marketing Audit builds on it with a full gaps analysis, 3 specific recommendations, and a 30-day roadmap tailored to your business. Your $9 applies as credit.</p>
+    <a href="https://marketing-ai-psi-nine.vercel.app/audit" style="display: inline-block; background: #0070f3; color: white; font-weight: bold; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-size: 14px;">Upgrade to the $49 Audit — apply $9 credit →</a>
+  </div>
+  <p style="font-size: 15px; line-height: 1.6;">Questions? Just reply to this email.</p>
+  <p style="font-size: 15px;">Talk soon,<br><strong>The MarketingAI Team</strong></p>
+  <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 32px 0;">
+  <p style="font-size: 12px; color: #888; text-align: center;">
+    MarketingAI · Australian Marketing Automation<br>
+    <a href="https://marketing-ai-psi-nine.vercel.app" style="color: #888;">marketing-ai-psi-nine.vercel.app</a>
+  </p>
+</body>
+</html>`;
+}
+
+async function sendQuickStartDeliveryEmail(
+  client: ClientData,
+  topChannels: string,
+  contentCalendarOutline: string,
+  socialPostTemplates: string,
+  competitorFramework: string
+) {
+  const transporter = getTransporter();
+  const html = formatQuickStartEmailHtml(client, topChannels, contentCalendarOutline, socialPostTemplates, competitorFramework);
+  const firstName = client.name?.split(' ')[0] || 'there';
+
+  const text = `Hi ${firstName},
+
+Your Marketing Quick-Start Guide is ready.
+
+===== TOP 5 MARKETING CHANNELS =====
+${topChannels}
+
+===== 30-DAY CONTENT CALENDAR OUTLINE =====
+${contentCalendarOutline}
+
+===== 3 READY-TO-USE SOCIAL POST TEMPLATES =====
+${socialPostTemplates}
+
+===== COMPETITOR POSITIONING FRAMEWORK =====
+${competitorFramework}
+
+Ready to go deeper? Upgrade to the $49 AI Marketing Audit at:
+https://marketing-ai-psi-nine.vercel.app/audit
+
+Your $9 applies as credit toward the $49 audit.
+
+The MarketingAI Team`;
+
+  await transporter.sendMail({
+    from: '"MarketingAI" <getmarketingai@gmail.com>',
+    to: client.email,
+    subject: 'Your Marketing Quick-Start Guide — MarketingAI',
+    html,
+    text,
+  });
+}
+
 // GET — health check
 export async function GET() {
   return NextResponse.json({ status: 'ok', endpoint: '/api/stripe-webhook' });
@@ -336,8 +431,46 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ received: true });
     }
 
+    // Branch: $9 Quick-Start Guide
+    if (productType === 'quick_start' || amountTotal === 900) {
+      const client: ClientData = {
+        email: customerEmail,
+        name: customerName,
+        company: customerName,
+      };
+
+      let deliveryStatus: 'delivered' | 'fallback' | 'failed' = 'fallback';
+
+      try {
+        console.log('Generating Quick-Start Guide for:', customerEmail);
+        const guide = await generateQuickStartGuide(client);
+        await sendQuickStartDeliveryEmail(
+          client,
+          guide.topChannels,
+          guide.contentCalendarOutline,
+          guide.socialPostTemplates,
+          guide.competitorFramework
+        );
+        deliveryStatus = 'delivered';
+        console.log(`Quick-Start Guide delivered to ${customerEmail}`);
+      } catch (genErr) {
+        console.error('Quick-Start generation/delivery failed, sending fallback:', genErr);
+        try {
+          await sendFallbackWelcomeEmail(customerEmail, customerName);
+        } catch (fallbackErr) {
+          console.error('Fallback email also failed:', fallbackErr);
+          deliveryStatus = 'failed';
+        }
+      }
+
+      try {
+        await sendAdminNotification(customerEmail, customerName, amountTotal, session.id, deliveryStatus);
+      } catch (adminErr) {
+        console.error('Admin notification failed:', adminErr);
+      }
+
     // Branch: $49 AI Marketing Audit vs $149 full setup
-    if (productType === 'audit' || amountTotal === 4900) {
+    } else if (productType === 'audit' || amountTotal === 4900) {
       // Handle AI Marketing Audit purchase
       try {
         await sendAuditClientConfirmation(customerEmail, customerName);
