@@ -42,11 +42,6 @@ function CTABanner({ variant = 'default' }: { variant?: 'default' | 'bottom' }) 
       <a
         href={STRIPE_LINK}
         className="inline-block bg-white text-blue-700 font-extrabold px-8 py-4 rounded-xl text-lg hover:bg-blue-50 transition-colors"
-        onClick={() => {
-          if (typeof (window as any).gtag === 'function') {
-            (window as any).gtag('event', 'sample_cta_click', { location: variant });
-          }
-        }}
       >
         Get my audit — $49 AUD →
       </a>
