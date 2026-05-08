@@ -36,7 +36,7 @@ const organizationSchema = {
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "sales",
-    "url": "https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
+    "url": "/audit"
   },
   "areaServed": ["AU", "US", "GB", "CA", "NZ"]
 };
@@ -54,7 +54,7 @@ const serviceSchema = {
     "@type": "Offer",
     "price": "149",
     "priceCurrency": "AUD",
-    "url": "https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00"
+    "url": "/audit"
   },
   "areaServed": ["AU", "US", "GB", "CA", "NZ"]
 };
