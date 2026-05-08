@@ -138,6 +138,46 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CONTENT CALENDARS */}
+      <section className="py-16 px-6 bg-white border-t border-gray-100">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-3">Quick win &mdash; $19 AUD</p>
+          <h2 className="text-2xl font-extrabold tracking-tight mb-4">
+            Not ready for the full setup? Start with a done-for-you content calendar.
+          </h2>
+          <p className="text-gray-500 text-sm mb-8 max-w-xl mx-auto">
+            30 LinkedIn post prompts, written for your industry. Pick your niche and post with confidence from day one.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+            {[
+              { label: 'Mortgage Brokers', slug: 'mortgage-brokers' },
+              { label: 'Real Estate Agents', slug: 'real-estate-agents' },
+              { label: 'Dentists', slug: 'dentists' },
+              { label: 'Photographers', slug: 'photographers' },
+              { label: 'Accountants', slug: 'accountants' },
+              { label: 'Personal Trainers', slug: 'personal-trainers' },
+              { label: 'Cafes & Restaurants', slug: 'cafes-restaurants' },
+              { label: 'Hair & Beauty', slug: 'hair-beauty' },
+            ].map((niche) => (
+              <a
+                key={niche.slug}
+                href={`/content-calendar/${niche.slug}`}
+                className="bg-gray-50 border border-gray-200 rounded-xl p-3 text-center hover:border-blue-300 hover:bg-blue-50 transition-colors block"
+              >
+                <p className="font-semibold text-gray-900 text-xs">{niche.label}</p>
+                <p className="text-xs text-blue-600 mt-0.5">$19 AUD</p>
+              </a>
+            ))}
+          </div>
+          <a
+            href="/content-calendar"
+            className="inline-block border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold px-8 py-3 rounded-lg transition-colors text-sm"
+          >
+            Browse all content calendars &rarr;
+          </a>
+        </div>
+      </section>
+
       {/* SOCIAL PROOF */}
       <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-lg mx-auto text-center">
