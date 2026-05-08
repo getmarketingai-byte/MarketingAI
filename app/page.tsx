@@ -88,7 +88,8 @@ export default function Home() {
                 <span className="text-lg font-extrabold text-gray-900">$49 AUD</span>
               </div>
               <h3 className="font-bold text-base mb-2">AI Marketing Audit</h3>
-              <p className="text-sm text-gray-500 mb-4 flex-1">A 3-page audit of your marketing gaps, 3 actionable fixes, and a 30-day priority roadmap.</p>
+              <p className="text-sm text-gray-500 mb-3 flex-1">A 3-page audit of your marketing gaps, 3 actionable fixes, and a 30-day priority roadmap.</p>
+              <a href="/audit/sample" className="text-xs text-blue-500 hover:text-blue-700 mb-3 inline-block">See a sample audit &rarr;</a>
               <a href="/audit" className="block text-center border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold px-4 py-2 rounded-lg text-sm transition-colors">Get your audit &mdash; $49 AUD</a>
             </div>
             <div className="border border-gray-200 bg-white rounded-xl p-6 flex flex-col">
