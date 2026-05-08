@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'LinkedIn Content Calendars for Australian Professionals | MarketingAI',
   description:
-    'Done-for-you LinkedIn content calendars for Australian professionals. Choose your industry: Mortgage Brokers, Real Estate Agents, Personal Trainers, Accountants. $19 AUD each.',
+    'Done-for-you LinkedIn content calendars for Australian professionals. Choose your industry: Mortgage Brokers, Real Estate Agents, Personal Trainers, Accountants, Dentists, Cafes & Restaurants, Photographers, Hair & Beauty. $19 AUD each.',
 };
 
 const niches = [
@@ -28,6 +28,26 @@ const niches = [
     slug: 'accountants',
     description: '30 LinkedIn post prompts crafted for Australian accountants.',
   },
+  {
+    name: 'Dentists',
+    slug: 'dentists',
+    description: '30 LinkedIn post prompts crafted for Australian dentists and dental practices.',
+  },
+  {
+    name: 'Cafes & Restaurants',
+    slug: 'cafes-restaurants',
+    description: '30 LinkedIn post prompts crafted for Australian cafes and restaurants.',
+  },
+  {
+    name: 'Photographers',
+    slug: 'photographers',
+    description: '30 LinkedIn post prompts crafted for Australian photographers.',
+  },
+  {
+    name: 'Hair & Beauty Salons',
+    slug: 'hair-beauty',
+    description: '30 LinkedIn post prompts crafted for Australian hair and beauty salons.',
+  },
 ];
 
 export default function ContentCalendarIndexPage() {
@@ -48,7 +68,7 @@ export default function ContentCalendarIndexPage() {
       {/* Bundle upsell banner */}
       <div className="bg-yellow-50 border-y border-yellow-200 py-4 px-6 text-center">
         <p className="text-gray-800 font-semibold">
-          Get all 4 for $49 &mdash; save 35%{' '}
+          Get the original 4 for $49 &mdash; save 35%{' '}
           <Link href="/content-calendar/bundle" className="text-blue-600 underline font-bold">
             View bundle &rarr;
           </Link>
@@ -85,7 +105,7 @@ export default function ContentCalendarIndexPage() {
       <section className="py-12 px-6 text-center" style={{ background: '#1a1a2e' }}>
         <div className="max-w-xl mx-auto">
           <p className="text-gray-300 mb-6 text-lg">
-            Not sure which to pick? Get all 4 for $49 and save 35%.
+            Not sure which to pick? Get the original 4 for $49 and save 35%.
           </p>
           <Link
             href="/content-calendar/bundle"
