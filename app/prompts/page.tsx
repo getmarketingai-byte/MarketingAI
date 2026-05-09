@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
 };
 
-const STRIPE_LINK = "https://buy.stripe.com/00wcN77Zr2tH36z15gbsc0c";
+const GUMROAD_LINK = "https://marketgenius4.gumroad.com/l/crtwc";
 
 const categories = [
   { icon: "📱", title: "Social Media Content", count: 8, desc: "Weekly calendars, captions, LinkedIn posts, Reel scripts, BTS content." },
@@ -49,7 +49,7 @@ export default function PromptsPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href={STRIPE_LINK}
+              href={GUMROAD_LINK}
               className="inline-block bg-white text-orange-600 font-bold text-lg px-10 py-4 rounded-xl hover:bg-orange-50 transition-colors shadow-lg"
             >
               Buy now — $19 AUD
@@ -142,13 +142,13 @@ export default function PromptsPage() {
             50 prompts. 7 categories. Instant download. $19 AUD.
           </p>
           <a
-            href={STRIPE_LINK}
+            href={GUMROAD_LINK}
             className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-xl px-12 py-5 rounded-xl transition-colors shadow-xl"
           >
             Get the Prompt Pack — $19 AUD →
           </a>
           <p className="text-gray-400 text-sm mt-4">
-            Instant PDF download · Stripe secure checkout · No subscription
+            Instant PDF download · Gumroad secure checkout · No subscription
           </p>
         </div>
       </section>
