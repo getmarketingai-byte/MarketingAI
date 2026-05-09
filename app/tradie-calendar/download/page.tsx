@@ -13,7 +13,7 @@ const COOKIE_NAME = "tradie_access";
 const CONTENT_URL = "/tradie-calendar/content";
 
 // $19 tradie content calendar Stripe payment link
-const PURCHASE_URL = "https://buy.stripe.com/9B63cxgvXb0ddLd6pAbsc01";
+const PURCHASE_URL = "https://buy.stripe.com/14AcN70wZ4BPdLd9BMbsc0d";
 
 function isValidToken(token: string | undefined, secret: string): boolean {
   if (!token) return false;
