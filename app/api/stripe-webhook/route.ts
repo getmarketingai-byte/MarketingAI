@@ -191,6 +191,73 @@ ${deliveryStatus !== 'delivered' ? '<p><strong>Action:</strong> Manually deliver
   });
 }
 
+
+// ---- PROMPT PACK PRODUCT ($19) ----
+
+async function sendPromptPackDeliveryEmail(customerEmail: string, customerName: string) {
+  const transporter = getTransporter();
+  const firstName = customerName?.split(' ')[0] || 'there';
+  const pdfUrl = 'https://marketing-ai-psi-nine.vercel.app/products/marketing-prompts-australian-smb.pdf';
+
+  await transporter.sendMail({
+    from: '"MarketingAI" <getmarketingai@gmail.com>',
+    to: customerEmail,
+    subject: 'Your 50 AI Marketing Prompts — Download Ready',
+    html: `<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; color: #1a1a1a;">
+  <div style="background: linear-gradient(135deg, #E8602C, #c44d1e); padding: 32px; border-radius: 12px; text-align: center; margin-bottom: 32px;">
+    <h1 style="color: white; margin: 0; font-size: 26px;">Your Prompt Pack Is Ready</h1>
+    <p style="color: rgba(255,255,255,0.9); margin: 8px 0 0;">50 AI Marketing Prompts — Download below</p>
+  </div>
+  <p style="font-size: 16px; line-height: 1.6;">Hi ${firstName},</p>
+  <p style="font-size: 15px; line-height: 1.6;">Thanks for your purchase! Your 50 AI Marketing Prompts PDF is ready to download.</p>
+  <div style="text-align: center; margin: 32px 0;">
+    <a href="${pdfUrl}" style="display: inline-block; background: #E8602C; color: white; font-weight: bold; font-size: 18px; padding: 16px 32px; border-radius: 10px; text-decoration: none;">Download Your PDF →</a>
+  </div>
+  <div style="background: #fff8f5; border: 1px solid #fdd9cc; border-radius: 8px; padding: 20px; margin: 24px 0;">
+    <h3 style="margin: 0 0 12px; font-size: 15px; color: #E8602C;">Quick-start tips</h3>
+    <ol style="font-size: 14px; line-height: 1.8; margin: 0; padding-left: 20px; color: #333;">
+      <li>Replace every <strong>[bracket]</strong> with your actual business details</li>
+      <li>Be specific — "Cafe in Brisbane targeting working professionals" beats "business"</li>
+      <li>After the first output, say "make it shorter" or "more casual" to iterate</li>
+      <li>Works with ChatGPT, Claude, Gemini, Copilot — any AI tool</li>
+    </ol>
+  </div>
+  <p style="font-size: 15px; line-height: 1.6; color: #555;">
+    <strong>Ready for the next step?</strong> Get a full AI Marketing Audit ($49) — personalised gaps analysis, 3 recommendations, and 30-day roadmap for your business.<br>
+    <a href="https://marketing-ai-psi-nine.vercel.app/audit" style="color: #E8602C;">Book your audit →</a>
+  </p>
+  <p style="font-size: 14px; color: #888; margin-top: 8px;">Your $19 purchase applies as credit toward the $49 audit.</p>
+  <hr style="border: none; border-top: 1px solid #e0e0e0; margin: 32px 0;">
+  <p style="font-size: 12px; color: #888; text-align: center;">
+    MarketingAI · Australian Marketing Automation<br>
+    Questions? Reply to this email or contact getmarketingai@gmail.com
+  </p>
+</body>
+</html>`,
+    text: `Hi ${firstName},
+
+Your 50 AI Marketing Prompts PDF is ready to download:
+
+${pdfUrl}
+
+Quick-start tips:
+1. Replace every [bracket] with your actual business details
+2. Be specific — "Cafe in Brisbane" beats "business"
+3. After the first output, iterate: "make it shorter" or "more casual"
+4. Works with ChatGPT, Claude, Gemini, Copilot
+
+Ready for the next step? Get a full AI Marketing Audit ($49) — personalised recommendations for your business:
+https://marketing-ai-psi-nine.vercel.app/audit
+
+Your $19 applies as credit toward the $49 audit.
+
+The MarketingAI Team`,
+  });
+}
+
 // ---- AUDIT PRODUCT ($49) ----
 
 async function sendAuditAdminNotification(
@@ -432,7 +499,31 @@ export async function POST(request: NextRequest) {
     }
 
     // Branch: $9 Quick-Start Guide
-    if (productType === 'quick_start' || amountTotal === 900) {
+    // Branch: $19 Prompt Pack
+    if (productType === 'prompt_pack' || amountTotal === 1900) {
+      let deliveryStatus: 'delivered' | 'fallback' | 'failed' = 'fallback';
+      try {
+        console.log('Sending prompt pack to:', customerEmail);
+        await sendPromptPackDeliveryEmail(customerEmail, customerName);
+        deliveryStatus = 'delivered';
+        console.log(`Prompt pack delivered to ${customerEmail}`);
+      } catch (err) {
+        console.error('Prompt pack delivery failed:', err);
+        try {
+          await sendFallbackWelcomeEmail(customerEmail, customerName);
+        } catch (fbErr) {
+          console.error('Fallback also failed:', fbErr);
+          deliveryStatus = 'failed';
+        }
+      }
+      try {
+        await sendAdminNotification(customerEmail, customerName, amountTotal, session.id, deliveryStatus);
+      } catch (adminErr) {
+        console.error('Admin notification failed:', adminErr);
+      }
+
+    // Branch: $9 Quick-Start Guide
+    } else if (productType === 'quick_start' || amountTotal === 900) {
       const client: ClientData = {
         email: customerEmail,
         name: customerName,
