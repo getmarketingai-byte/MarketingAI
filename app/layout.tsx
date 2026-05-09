@@ -109,6 +109,7 @@ export default function RootLayout({
          {children}
          <footer style={{ background: '#1a1a2e', color: 'rgba(255,255,255,0.5)', textAlign: 'center', padding: '20px', fontSize: '0.82rem' }}>
            <p>
+             <a href="/products" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>Products</a> |
              <a href="/about" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>About</a> |
              <a href="/privacy" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>Privacy Policy</a> |
              <a href="/support" style={{ color: 'rgba(255,255,255,0.5)', textDecoration: 'underline' }}>Contact</a> |

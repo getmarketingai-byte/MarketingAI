@@ -14,9 +14,12 @@ export default function Home() {
       {/* NAV */}
       <nav className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
         <span className="font-extrabold text-lg tracking-tight">MarketingAI</span>
-        <span className="text-xs font-bold bg-blue-600 text-white px-3 py-1 rounded-full tracking-wide">
-          Australia
-        </span>
+        <div className="flex items-center gap-4">
+          <a href="/products" className="text-sm font-semibold text-gray-600 hover:text-orange-500">Products</a>
+          <span className="text-xs font-bold bg-blue-600 text-white px-3 py-1 rounded-full tracking-wide">
+            Australia
+          </span>
+        </div>
       </nav>
 
       {/* HERO */}
