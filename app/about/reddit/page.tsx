@@ -32,8 +32,9 @@ export default function AboutRedditPage() {
               and email nurture workflows.
             </p>
             <p className="text-sm text-gray-600 leading-relaxed mt-3">
-              Our tools include free marketing calculators (ROI, CAC, CLV, ROAS, and more), SEO
-              articles, and done-with-you marketing system setup. We are based in Australia and
+              Our free marketing calculators (ROI, CAC, CLV, ROAS, and more) are available at{" "}
+              <a href="https://calcfuel.com" className="text-blue-600 underline">calcfuel.com</a>. We also provide SEO
+              articles and done-with-you marketing system setup. We are based in Australia and
               operate under Australian Consumer Law and the Australian Privacy Act.
             </p>
           </div>
