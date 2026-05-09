@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-const PDF_URL = "https://marketing-ai-psi-nine.vercel.app/products/tradie-content-calendar-90-day.pdf";
+const CONTENT_URL = "/tradie-calendar/content";
 
 export default function TradieCalendarDownloadPage() {
   return (
@@ -18,19 +18,18 @@ export default function TradieCalendarDownloadPage() {
           Your Content Calendar is Ready
         </h1>
         <p className="text-gray-600 mb-8">
-          Thank you for your purchase. Click below to download your 90-Day Social Media Content Calendar for Tradies.
+          Thank you for your purchase. Click below to access your complete 90-Day Social Media Content Calendar &mdash; 90 Instagram captions, 26 Facebook posts, 10 video scripts, hashtag guide, and posting schedule.
         </p>
 
-        <a
-          href={PDF_URL}
-          download
+        <Link
+          href={CONTENT_URL}
           className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-md mb-4"
         >
-          Download Your Calendar (PDF) ↓
-        </a>
+          View Your Content Calendar &rarr;
+        </Link>
 
         <p className="text-sm text-gray-400 mb-8">
-          PDF file &middot; Opens on any device
+          Opens instantly &middot; Works on any device &middot; Bookmark for easy access
         </p>
 
         <hr className="border-gray-100 mb-8" />
