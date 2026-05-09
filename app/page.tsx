@@ -50,10 +50,98 @@ export default function Home() {
            </a>
         </div>
         <p className="text-sm text-gray-400 mt-4">One-time setup fee. No lock-in. No monthly retainer.</p>
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100 max-w-md mx-auto">
-          <p className="text-sm font-semibold text-gray-700 mb-1">Not sure yet?</p>
-          <a href="/audit" className="text-blue-600 hover:text-blue-800 font-bold text-sm" onClick={() => trackEvent('cta_click_audit', { page_title: 'Home', price: 49 })}>Try a $49 marketing audit first &rarr;</a>
-          <p className="text-xs text-gray-400 mt-1">Get a personalised report. Apply the $49 toward the full $149 setup.</p>
+        <div className="mt-6 max-w-md mx-auto space-y-3">
+          <div className="p-4 bg-blue-50 rounded-lg border border-blue-100">
+            <p className="text-sm font-semibold text-gray-700 mb-1">Not sure yet?</p>
+            <a href="/audit" className="text-blue-600 hover:text-blue-800 font-bold text-sm" onClick={() => trackEvent('cta_click_audit', { page_title: 'Home', price: 49 })}>Try a $49 marketing audit first &rarr;</a>
+            <p className="text-xs text-gray-400 mt-1">Get a personalised report. Apply the $49 toward the full $149 setup.</p>
+          </div>
+          <div className="p-4 bg-green-50 rounded-lg border border-green-100">
+            <p className="text-sm font-semibold text-gray-700 mb-1">Not ready for a full audit? Start here.</p>
+            <a
+              href="https://buy.stripe.com/8x24gBa7z5FT8qT15gbsc07"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-700 hover:text-green-900 font-bold text-sm"
+              onClick={() => trackEvent('cta_click_quickstart', { page_title: 'Home', price: 9 })}
+            >Marketing Quick-Start Guide &mdash; $9 AUD &rarr;</a>
+            <p className="text-xs text-gray-400 mt-1">Top 5 channels, 30-day content outline, post templates &amp; positioning framework. Delivered instantly.</p>
+          </div>
+        </div>
+      </section>
+
+
+      {/* PRODUCTS */}
+      <section className="py-14 px-6 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-2xl mx-auto">
+          <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-3 text-center">Everything we offer</p>
+          <h2 className="text-2xl font-extrabold tracking-tight mb-8 text-center">Start where it makes sense for you</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="border border-gray-200 bg-white rounded-xl p-6 flex flex-col">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-xs font-bold tracking-widest uppercase text-blue-600">Quick Start</p>
+                <span className="text-lg font-extrabold text-gray-900">$9 AUD</span>
+              </div>
+              <h3 className="font-bold text-base mb-2">Marketing Quick-Start Guide</h3>
+              <p className="text-sm text-gray-500 mb-4 flex-1">A personalised 5-step marketing action plan for your business. Instant delivery.</p>
+              <a href="/quick-start-guide" className="block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-2 rounded-lg text-sm transition-colors">Get the guide &mdash; $9 AUD</a>
+            </div>
+            <div className="border border-gray-200 bg-white rounded-xl p-6 flex flex-col">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-xs font-bold tracking-widest uppercase text-blue-600">Done For You</p>
+                <span className="text-lg font-extrabold text-gray-900">$19 AUD</span>
+              </div>
+              <h3 className="font-bold text-base mb-2">Industry Content Calendar</h3>
+              <p className="text-sm text-gray-500 mb-4 flex-1">30 LinkedIn post prompts written for your industry. Post with confidence from day one.</p>
+              <a href="/content-calendar" className="block text-center border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold px-4 py-2 rounded-lg text-sm transition-colors">Browse calendars &mdash; $19 AUD</a>
+            </div>
+            <div className="border border-gray-200 bg-white rounded-xl p-6 flex flex-col">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-xs font-bold tracking-widest uppercase text-blue-600">Personalised Audit</p>
+                <span className="text-lg font-extrabold text-gray-900">$49 AUD</span>
+              </div>
+              <h3 className="font-bold text-base mb-2">AI Marketing Audit</h3>
+              <p className="text-sm text-gray-500 mb-3 flex-1">A 3-page audit of your marketing gaps, 3 actionable fixes, and a 30-day priority roadmap.</p>
+              <a href="/audit/sample" className="text-xs text-blue-500 hover:text-blue-700 mb-3 inline-block">See a sample audit &rarr;</a>
+              <a href="/audit" className="block text-center border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold px-4 py-2 rounded-lg text-sm transition-colors">Get your audit &mdash; $49 AUD</a>
+            </div>
+            <div className="border border-gray-200 bg-white rounded-xl p-6 flex flex-col">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-xs font-bold tracking-widest uppercase text-green-600">Best Value</p>
+                <span className="text-lg font-extrabold text-gray-900">$49 AUD</span>
+              </div>
+              <h3 className="font-bold text-base mb-2">Content Calendar Bundle</h3>
+              <p className="text-sm text-gray-500 mb-4 flex-1">All 4 industry content calendars &mdash; 120 LinkedIn prompts across mortgage, real estate, personal training &amp; accounting.</p>
+              <a href="/content-calendar/bundle" className="block text-center border border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600 font-bold px-4 py-2 rounded-lg text-sm transition-colors">Get the bundle &mdash; $49 AUD</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROMPT PACK CTA */}
+      <section className="bg-blue-50 border-y border-blue-100 py-10 px-6">
+        <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-6">
+          <div className="flex-1">
+            <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-1">New — instant download</p>
+            <h2 className="text-xl font-extrabold tracking-tight mb-1">
+              50 AI Marketing Prompts for Australian Small Business
+            </h2>
+            <p className="text-sm text-gray-600">
+              Ready-to-use prompts across 7 categories. Fill-in-the-blank format. Works with any AI tool.
+            </p>
+          </div>
+          <div className="flex flex-col items-center sm:items-end gap-2 flex-shrink-0">
+            <div className="text-3xl font-extrabold text-gray-900">A$19</div>
+            <a
+              href="https://marketgenius4.gumroad.com/l/crtwc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg text-base transition-colors whitespace-nowrap"
+              onClick={() => trackEvent('cta_click_prompt_pack', { page_title: 'Home', price: 19 })}
+            >
+              Buy now &mdash; A$19
+            </a>
+          </div>
         </div>
       </section>
 
@@ -135,6 +223,46 @@ export default function Home() {
           <p className="text-gray-500 text-xs mt-4">
             No monthly retainer. No minimum term. Pay once, own the setup.
           </p>
+        </div>
+      </section>
+
+      {/* CONTENT CALENDARS */}
+      <section className="py-16 px-6 bg-white border-t border-gray-100">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-3">Quick win &mdash; $19 AUD</p>
+          <h2 className="text-2xl font-extrabold tracking-tight mb-4">
+            Not ready for the full setup? Start with a done-for-you content calendar.
+          </h2>
+          <p className="text-gray-500 text-sm mb-8 max-w-xl mx-auto">
+            30 LinkedIn post prompts, written for your industry. Pick your niche and post with confidence from day one.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+            {[
+              { label: 'Mortgage Brokers', slug: 'mortgage-brokers' },
+              { label: 'Real Estate Agents', slug: 'real-estate-agents' },
+              { label: 'Dentists', slug: 'dentists' },
+              { label: 'Photographers', slug: 'photographers' },
+              { label: 'Accountants', slug: 'accountants' },
+              { label: 'Personal Trainers', slug: 'personal-trainers' },
+              { label: 'Cafes & Restaurants', slug: 'cafes-restaurants' },
+              { label: 'Hair & Beauty', slug: 'hair-beauty' },
+            ].map((niche) => (
+              <a
+                key={niche.slug}
+                href={`/content-calendar/${niche.slug}`}
+                className="bg-gray-50 border border-gray-200 rounded-xl p-3 text-center hover:border-blue-300 hover:bg-blue-50 transition-colors block"
+              >
+                <p className="font-semibold text-gray-900 text-xs">{niche.label}</p>
+                <p className="text-xs text-blue-600 mt-0.5">$19 AUD</p>
+              </a>
+            ))}
+          </div>
+          <a
+            href="/content-calendar"
+            className="inline-block border border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold px-8 py-3 rounded-lg transition-colors text-sm"
+          >
+            Browse all content calendars &rarr;
+          </a>
         </div>
       </section>
 

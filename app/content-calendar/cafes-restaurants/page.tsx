@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import EmailCaptureCalendar from './EmailCaptureCalendar';
 
 export const metadata: Metadata = {
-  title: '30-Day LinkedIn Content Calendar for Mortgage Brokers | MarketingAI',
+  title: '30-Day LinkedIn Content Calendar for Cafes & Restaurants | MarketingAI',
   description:
-    '30 done-for-you LinkedIn post prompts tailored for Australian mortgage brokers. Instant download, $19 AUD.',
+    '30 done-for-you LinkedIn post prompts tailored for Australian cafes and restaurants. Instant download, $19 AUD.',
 };
 
-export default function MortgageBrokersContentCalendarPage() {
-  const stripeLink = 'https://buy.stripe.com/9B63cxgvXb0ddLd6pAbsc01';
+export default function CafesRestaurantsContentCalendarPage() {
+  const stripeLink = 'https://buy.stripe.com/14A14pa7z4BP5eHaFQbsc09';
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
@@ -16,13 +16,13 @@ export default function MortgageBrokersContentCalendarPage() {
       <section style={{ background: '#1a1a2e' }} className="py-20 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4">
-            For Australian Mortgage Brokers
+            For Australian Cafes &amp; Restaurants
           </p>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
-            Stop Staring at a Blank Screen.<br />Start Posting Like a Pro.
+            Stop Scrambling for Content.<br />Start Filling Tables.
           </h1>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            30 done-for-you LinkedIn post prompts, crafted specifically for Australian mortgage brokers.
+            30 done-for-you LinkedIn post prompts, crafted specifically for Australian cafes and restaurants.
           </p>
           <a
             href={stripeLink}
@@ -40,12 +40,12 @@ export default function MortgageBrokersContentCalendarPage() {
           <h2 className="text-2xl font-extrabold text-gray-900 mb-8 text-center">Sound familiar?</h2>
           <ul className="space-y-5">
             {[
-              "You know you should be posting on LinkedIn. You just don\u2019t know what to say.",
-              "You\u2019re posting inconsistently \u2014 or not at all \u2014 while competitors build their profile.",
-              "You write something, delete it, and give up. The blank page wins again.",
+              "You\u2019re too busy running the kitchen to think about what to post on LinkedIn.",
+              "Instagram gets all the attention, but your corporate catering clients are on LinkedIn \u2014 and you\u2019re invisible there.",
+              "You know you should be building your business profile online. You just never get around to it.",
             ].map((point, i) => (
               <li key={i} className="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-                <span className="text-2xl" aria-hidden="true">\ud83d\ude13</span>
+                <span className="text-2xl" aria-hidden="true">&#128531;</span>
                 <p className="text-gray-700 leading-relaxed">{point}</p>
               </li>
             ))}
@@ -60,14 +60,14 @@ export default function MortgageBrokersContentCalendarPage() {
           <ul className="space-y-4">
             {[
               "30 LinkedIn post prompts \u2014 one for every day of the month",
-              "4 proven content themes that build trust with home buyers and investors",
-              "Best posting times for Australian business audience",
-              "5 engagement comment templates to grow your network",
-              "Hashtag strategy for mortgage brokers",
+              "4 proven content themes: customer experience, behind the scenes, seasonal menus, and local community",
+              "Best posting times for the Australian professional audience",
+              "5 engagement comment templates to grow your business network",
+              "Hashtag strategy for hospitality and food businesses",
               "Formatted and ready to use \u2014 just fill in the blanks",
             ].map((item, i) => (
               <li key={i} className="flex items-center gap-3 text-gray-700">
-                <span className="text-green-500 font-bold text-lg" aria-hidden="true">\u2713</span>
+                <span className="text-green-500 font-bold text-lg" aria-hidden="true">&#10003;</span>
                 <span>{item}</span>
               </li>
             ))}

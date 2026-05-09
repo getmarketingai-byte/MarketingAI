@@ -74,6 +74,11 @@ export default function AuditPage() {
         <p className="text-sm text-blue-700 font-semibold bg-blue-50 inline-block px-4 py-2 rounded-full">
           Upgrade later? We&rsquo;ll apply the $49 as credit toward the $149 full setup.
         </p>
+        <p className="mt-4">
+          <a href="/audit/sample" className="text-sm text-blue-600 hover:text-blue-800 font-medium underline underline-offset-2">
+            Not sure what you&rsquo;re getting? See a sample audit first &rarr;
+          </a>
+        </p>
       </section>
 
       {/* WHAT YOU GET */}
@@ -97,6 +102,21 @@ export default function AuditPage() {
               <p className="text-sm text-gray-500">A clear sequence of what to do and when &mdash; built around your business.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* QUICK-START ALTERNATIVE */}
+      <section className="max-w-xl mx-auto px-6 py-6">
+        <div className="bg-green-50 border border-green-200 rounded-lg p-5 text-center">
+          <p className="text-sm font-semibold text-gray-700 mb-1">Just need a quick start?</p>
+          <a
+            href="https://buy.stripe.com/8x24gBa7z5FT8qT15gbsc07"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-700 hover:text-green-900 font-bold text-sm"
+            onClick={() => trackEvent('cta_click_quickstart', { page_title: 'Audit', price: 9 })}
+          >Get your personalised marketing action plan for $9 &rarr;</a>
+          <p className="text-xs text-gray-500 mt-1">Top 5 channels, 30-day content calendar outline, post templates &amp; positioning framework — delivered instantly.</p>
         </div>
       </section>
 

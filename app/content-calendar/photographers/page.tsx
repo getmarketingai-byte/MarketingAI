@@ -2,13 +2,13 @@ import type { Metadata } from 'next';
 import EmailCaptureCalendar from './EmailCaptureCalendar';
 
 export const metadata: Metadata = {
-  title: '30-Day LinkedIn Content Calendar for Mortgage Brokers | MarketingAI',
+  title: '30-Day LinkedIn Content Calendar for Photographers | MarketingAI',
   description:
-    '30 done-for-you LinkedIn post prompts tailored for Australian mortgage brokers. Instant download, $19 AUD.',
+    '30 done-for-you LinkedIn post prompts tailored for Australian photographers. Instant download, $19 AUD.',
 };
 
-export default function MortgageBrokersContentCalendarPage() {
-  const stripeLink = 'https://buy.stripe.com/9B63cxgvXb0ddLd6pAbsc01';
+export default function PhotographersContentCalendarPage() {
+  const stripeLink = 'https://buy.stripe.com/eVqdRbcfH0lz7mP7tEbsc0a';
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
@@ -16,13 +16,13 @@ export default function MortgageBrokersContentCalendarPage() {
       <section style={{ background: '#1a1a2e' }} className="py-20 px-6 text-center">
         <div className="max-w-3xl mx-auto">
           <p className="text-blue-400 text-sm font-semibold uppercase tracking-widest mb-4">
-            For Australian Mortgage Brokers
+            For Australian Photographers
           </p>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
-            Stop Staring at a Blank Screen.<br />Start Posting Like a Pro.
+            You&rsquo;re Great Behind the Lens.<br />Now Let&rsquo;s Get You Seen.
           </h1>
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            30 done-for-you LinkedIn post prompts, crafted specifically for Australian mortgage brokers.
+            30 done-for-you LinkedIn post prompts, crafted specifically for Australian photographers.
           </p>
           <a
             href={stripeLink}
@@ -40,12 +40,12 @@ export default function MortgageBrokersContentCalendarPage() {
           <h2 className="text-2xl font-extrabold text-gray-900 mb-8 text-center">Sound familiar?</h2>
           <ul className="space-y-5">
             {[
-              "You know you should be posting on LinkedIn. You just don\u2019t know what to say.",
-              "You\u2019re posting inconsistently \u2014 or not at all \u2014 while competitors build their profile.",
-              "You write something, delete it, and give up. The blank page wins again.",
+              "You\u2019re amazing at capturing moments \u2014 but talking about your work online feels awkward and self-promotional.",
+              "Ideal clients are on LinkedIn, but you\u2019re invisible because you\u2019re not posting consistently.",
+              "You open LinkedIn, stare at the compose box, and close it. Your competitors get the bookings instead.",
             ].map((point, i) => (
               <li key={i} className="flex items-start gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-                <span className="text-2xl" aria-hidden="true">\ud83d\ude13</span>
+                <span className="text-2xl" aria-hidden="true">&#128531;</span>
                 <p className="text-gray-700 leading-relaxed">{point}</p>
               </li>
             ))}
@@ -60,14 +60,14 @@ export default function MortgageBrokersContentCalendarPage() {
           <ul className="space-y-4">
             {[
               "30 LinkedIn post prompts \u2014 one for every day of the month",
-              "4 proven content themes that build trust with home buyers and investors",
-              "Best posting times for Australian business audience",
-              "5 engagement comment templates to grow your network",
-              "Hashtag strategy for mortgage brokers",
+              "4 proven content themes: portfolio showcases, behind the scenes, client success stories, and tips & education",
+              "Best posting times for the Australian professional audience",
+              "5 engagement comment templates to grow your creative network",
+              "Hashtag strategy for photographers and creative professionals",
               "Formatted and ready to use \u2014 just fill in the blanks",
             ].map((item, i) => (
               <li key={i} className="flex items-center gap-3 text-gray-700">
-                <span className="text-green-500 font-bold text-lg" aria-hidden="true">\u2713</span>
+                <span className="text-green-500 font-bold text-lg" aria-hidden="true">&#10003;</span>
                 <span>{item}</span>
               </li>
             ))}
