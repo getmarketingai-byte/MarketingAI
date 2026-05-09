@@ -1,10 +1,31 @@
 import type { Metadata } from 'next';
+import { cookies } from 'next/headers';
+import crypto from 'crypto';
 import PrintButton from './PrintButton';
 
 export const metadata: Metadata = {
   title: 'Your LinkedIn Content Calendar | MarketingAI',
   description: 'Your 30-Day LinkedIn Content Calendar for Mortgage Brokers — ready to use.',
+  robots: { index: false, follow: false },
 };
+
+const COOKIE_NAME = 'content_calendar_access';
+const PURCHASE_URL = 'https://buy.stripe.com/9B63cxgvXb0ddLd6pAbsc01';
+
+function isValidToken(token: string | undefined, secret: string): boolean {
+  if (!token) return false;
+  const parts = token.split('.');
+  if (parts.length !== 2) return false;
+  const [expiresStr, sig] = parts;
+  const expires = parseInt(expiresStr, 10);
+  if (isNaN(expires) || Date.now() > expires) return false;
+  const expected = crypto
+    .createHmac('sha256', secret)
+    .update(expiresStr)
+    .digest('hex')
+    .slice(0, 24);
+  return sig === expected;
+}
 
 const contentThemes = [
   { number: 1, name: 'Education', description: 'Demystifying the mortgage process' },
@@ -79,7 +100,52 @@ const themeColors: Record<string, string> = {
   'Mixed': 'bg-gray-50 border-gray-200',
 };
 
-export default function ContentCalendarDownloadPage() {
+export default async function ContentCalendarDownloadPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ access?: string; session_id?: string }>;
+}) {
+  const params = await searchParams;
+  const cookieStore = await cookies();
+  const token = cookieStore.get(COOKIE_NAME)?.value;
+  const secret = process.env.CRON_SECRET || '';
+  const hasAccess = isValidToken(token, secret);
+
+  // If session_id present, redirect through verify route as fallback
+  if (params.session_id && !hasAccess) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4">
+        <p className="text-gray-600">Verifying your purchase&hellip;</p>
+        <meta httpEquiv="refresh" content={`0;url=/api/content-calendar-verify?session_id=${params.session_id}`} />
+      </div>
+    );
+  }
+
+  if (!hasAccess) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 py-16">
+        <div className="max-w-lg w-full bg-white rounded-2xl shadow-lg p-10 text-center">
+          <div className="text-5xl mb-6">🔒</div>
+          <h1 className="text-2xl font-bold text-gray-900 mb-3">
+            Purchase Required
+          </h1>
+          <p className="text-gray-600 mb-8">
+            The 30-Day LinkedIn Content Calendar for Mortgage Brokers is available after purchase. Get instant access for $19 AUD.
+          </p>
+          <a
+            href={PURCHASE_URL}
+            className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold text-lg px-10 py-4 rounded-xl transition-colors shadow-md mb-4"
+          >
+            Get the Content Calendar &mdash; $19 AUD &rarr;
+          </a>
+          <p className="text-xs text-gray-400 mt-4">
+            30 post prompts &middot; 4 content themes &middot; Hashtag guide &middot; Engagement templates
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <>
       <style>{`
@@ -126,7 +192,7 @@ export default function ContentCalendarDownloadPage() {
           <ul className="space-y-2">
             {postingTimes.map((t, i) => (
               <li key={i} className="flex items-start gap-2 text-gray-700 text-sm">
-                <span className="text-blue-500 font-bold mt-0.5">\u2022</span>
+                <span className="text-blue-500 font-bold mt-0.5">&bull;</span>
                 <span>{t}</span>
               </li>
             ))}
