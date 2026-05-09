@@ -15,9 +15,16 @@ interface DevToResult {
   error?: string;
 }
 
+interface HashnodeResult {
+  success: boolean;
+  url?: string;
+  id?: string;
+  error?: string;
+}
+
 interface PublishResult {
   devto?: DevToResult;
-  // hashnode?: HashnodeResult; // TODO: add when Hashnode account is created
+  hashnode?: HashnodeResult;
 }
 
 export async function POST(req: NextRequest) {
@@ -85,8 +92,81 @@ export async function POST(req: NextRequest) {
     }
   }
 
-  // TODO: Add Hashnode support when HASHNODE_API_KEY is available
-  // if (platforms.includes("hashnode")) { ... }
+  if (platforms.includes("hashnode")) {
+    const hashnodeApiKey = process.env.HASHNODE_API_KEY;
+    const hashnodePublicationId = process.env.HASHNODE_PUBLICATION_ID;
+
+    if (!hashnodeApiKey) {
+      result.hashnode = { success: false, error: "HASHNODE_API_KEY not configured" };
+    } else if (!hashnodePublicationId) {
+      result.hashnode = { success: false, error: "HASHNODE_PUBLICATION_ID not configured — founder must create publication at hashnode.com" };
+    } else {
+      try {
+        const slug = title
+          .toLowerCase()
+          .replace(/[^a-z0-9\s-]/g, "")
+          .replace(/\s+/g, "-")
+          .replace(/-+/g, "-")
+          .slice(0, 80);
+
+        const mutation = `
+          mutation PublishPost($input: PublishPostInput!) {
+            publishPost(input: $input) {
+              post {
+                id
+                url
+              }
+            }
+          }
+        `;
+
+        const variables = {
+          input: {
+            title,
+            contentMarkdown: body_markdown,
+            publicationId: hashnodePublicationId,
+            slug,
+            tags: [],
+            ...(canonical_url ? { originalArticleURL: canonical_url } : {}),
+          },
+        };
+
+        const hashnodeRes = await fetch("https://gql.hashnode.com", {
+          method: "POST",
+          headers: {
+            "Authorization": hashnodeApiKey,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ query: mutation, variables }),
+        });
+
+        const hashnodeData = await hashnodeRes.json();
+
+        if (hashnodeData.errors && hashnodeData.errors.length > 0) {
+          result.hashnode = {
+            success: false,
+            error: hashnodeData.errors[0].message,
+          };
+        } else if (hashnodeData.data?.publishPost?.post?.url) {
+          result.hashnode = {
+            success: true,
+            url: hashnodeData.data.publishPost.post.url,
+            id: hashnodeData.data.publishPost.post.id,
+          };
+        } else {
+          result.hashnode = {
+            success: false,
+            error: `Unexpected Hashnode response: ${JSON.stringify(hashnodeData)}`,
+          };
+        }
+      } catch (err) {
+        result.hashnode = {
+          success: false,
+          error: err instanceof Error ? err.message : "Unknown error",
+        };
+      }
+    }
+  }
 
   return NextResponse.json(result);
 }
