@@ -118,6 +118,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PROMPT PACK CTA */}
+      <section className="bg-blue-50 border-y border-blue-100 py-10 px-6">
+        <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-6">
+          <div className="flex-1">
+            <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-1">New — instant download</p>
+            <h2 className="text-xl font-extrabold tracking-tight mb-1">
+              50 AI Marketing Prompts for Australian Small Business
+            </h2>
+            <p className="text-sm text-gray-600">
+              Ready-to-use prompts across 7 categories. Fill-in-the-blank format. Works with any AI tool.
+            </p>
+          </div>
+          <div className="flex flex-col items-center sm:items-end gap-2 flex-shrink-0">
+            <div className="text-3xl font-extrabold text-gray-900">A$19</div>
+            <a
+              href="https://marketgenius4.gumroad.com/l/crtwc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg text-base transition-colors whitespace-nowrap"
+              onClick={() => trackEvent('cta_click_prompt_pack', { page_title: 'Home', price: 19 })}
+            >
+              Buy now &mdash; A$19
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* PROBLEM */}
       <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-2xl mx-auto">
