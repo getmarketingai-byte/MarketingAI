@@ -1,4 +1,27 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import crypto from "crypto";
+
+const COOKIE_NAME = "tradie_access";
+
+async function verifyAccess(): Promise<boolean> {
+  const cookieStore = await cookies();
+  const token = cookieStore.get(COOKIE_NAME)?.value;
+  if (!token) return false;
+  const parts = token.split(".");
+  if (parts.length !== 2) return false;
+  const [expiresStr, sig] = parts;
+  const expires = parseInt(expiresStr, 10);
+  if (isNaN(expires) || Date.now() > expires) return false;
+  const secret = process.env.CRON_SECRET || "";
+  const expected = crypto
+    .createHmac("sha256", secret)
+    .update(expiresStr)
+    .digest("hex")
+    .slice(0, 24);
+  return sig === expected;
+}
 
 export const metadata: Metadata = {
   title: "90-Day Social Media Content Calendar for Tradies | MarketingAI",
@@ -427,7 +450,11 @@ function ScriptCard({ script }: { script: VideoScript }) {
 
 const pillars = ["All", "Before & After", "Tips & Education", "Behind the Scenes", "Customer Stories", "Local Community", "Personality"];
 
-export default function TradieCalendarContentPage() {
+export default async function TradieCalendarContentPage() {
+  const hasAccess = await verifyAccess();
+  if (!hasAccess) {
+    redirect("/tradie-calendar/download?access=required");
+  }
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
