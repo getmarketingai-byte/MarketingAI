@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DeadlineBanner from "@/components/DeadlineBanner";
 
 export const metadata: Metadata = {
   title: "AI Marketing Prompts — 3 Tiers from $19 AUD | MarketingAI",
@@ -87,6 +88,7 @@ const categories = [
 export default function PromptsPage() {
   return (
     <div className="min-h-screen bg-white">
+      <DeadlineBanner />
       {/* Hero */}
       <section className="bg-gradient-to-br from-orange-500 to-orange-600 text-white py-20 px-4">
         <div className="max-w-3xl mx-auto text-center">
