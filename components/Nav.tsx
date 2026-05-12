@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 
 const links = [
@@ -22,7 +23,7 @@ export default function Nav({ clientName }: { clientName: string }) {
   return (
     <nav className="bg-white border-b border-gray-200 px-6 py-3 flex items-center justify-between">
       <div className="flex items-center gap-6">
-        <span className="font-semibold text-gray-900 text-sm">MarketingAI</span>
+        <Image src="/logo.jpg" alt="MarketingAI" width={32} height={32} className="rounded-md" />
         <div className="flex gap-1">
           {links.map((l) => (
             <Link

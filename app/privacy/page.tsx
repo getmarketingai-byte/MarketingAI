@@ -1,3 +1,4 @@
+import Image from 'next/image';
 export const metadata = {
   title: "Privacy Policy — MarketingAI",
   description: "Privacy Policy for MarketingAI — how we collect, use, and protect your personal information.",
@@ -7,7 +8,7 @@ export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
       <nav className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-        <a href="/" className="font-extrabold text-lg tracking-tight">MarketingAI</a>
+        <a href="/"><Image src="/logo.jpg" alt="MarketingAI" width={40} height={40} className="rounded-md" /></a>
         <a href="https://buy.stripe.com/cNi8wR0wZd8lePh01cbsc00" target="_blank" rel="noopener noreferrer" className="text-xs font-bold bg-blue-600 text-white px-3 py-1 rounded-full tracking-wide">
           Get Started — $149
         </a>

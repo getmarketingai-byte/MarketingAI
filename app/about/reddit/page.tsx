@@ -1,3 +1,4 @@
+import Image from 'next/image';
 export const metadata = {
   title: "About — MarketingAI Reddit Integration",
   description: "How MarketingAI uses Reddit to share helpful marketing content, tips, and tools for small businesses.",
@@ -7,7 +8,7 @@ export default function AboutRedditPage() {
   return (
     <main className="min-h-screen bg-white text-gray-900">
       <nav className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-        <a href="/" className="font-extrabold text-lg tracking-tight">MarketingAI</a>
+        <a href="/"><Image src="/logo.jpg" alt="MarketingAI" width={40} height={40} className="rounded-md" /></a>
         <a href="/audit" className="text-xs font-bold bg-blue-600 text-white px-3 py-1 rounded-full tracking-wide">
           Get Marketing Audit
         </a>

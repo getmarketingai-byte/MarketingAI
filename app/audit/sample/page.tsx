@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Sample Marketing Audit — Smile Dental | MarketingAI',
@@ -55,7 +56,7 @@ export default function SampleAuditPage() {
     <main className="min-h-screen bg-white text-gray-900">
       {/* NAV */}
       <nav className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="font-extrabold text-lg tracking-tight">MarketingAI</Link>
+        <Link href="/"><Image src="/logo.jpg" alt="MarketingAI" width={40} height={40} className="rounded-md" /></Link>
         <a
           href={STRIPE_LINK}
           className="bg-blue-600 text-white text-sm font-bold px-4 py-2 rounded-full hover:bg-blue-700 transition-colors"

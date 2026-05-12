@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import EmailCaptureSection from './components/EmailCaptureSection';
 
 function trackEvent(action: string, params: Record<string, any>) {
@@ -13,7 +14,7 @@ export default function Home() {
     <main className="min-h-screen bg-white text-gray-900">
       {/* NAV */}
       <nav className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-        <span className="font-extrabold text-lg tracking-tight">MarketingAI</span>
+        <Image src="/logo.jpg" alt="MarketingAI" width={40} height={40} className="rounded-md" />
         <div className="flex items-center gap-4">
           <a href="/products" className="text-sm font-semibold text-gray-600 hover:text-orange-500">Products</a>
           <span className="text-xs font-bold bg-blue-600 text-white px-3 py-1 rounded-full tracking-wide">

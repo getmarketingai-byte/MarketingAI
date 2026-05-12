@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "Products — AI Marketing Tools for Small Business | MarketingAI",
@@ -75,7 +76,7 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-white">
       <nav className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-        <Link href="/" className="font-bold text-lg text-gray-900">MarketingAI</Link>
+        <Link href="/"><Image src="/logo.jpg" alt="MarketingAI" width={40} height={40} className="rounded-md" /></Link>
         <Link href="/audit" className="text-sm font-semibold text-orange-500 hover:text-orange-600">
           Book Audit →
         </Link>

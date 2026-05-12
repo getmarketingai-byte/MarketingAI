@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from 'next';
 import VibeCoderEmailCapture from './EmailCapture';
 
@@ -12,7 +13,7 @@ export default function VibeCoder() {
     <main className="min-h-screen bg-white text-gray-900">
       {/* NAV */}
       <nav className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-        <span className="font-extrabold text-lg tracking-tight">MarketingAI</span>
+        <Image src="/logo.jpg" alt="MarketingAI" width={40} height={40} className="rounded-md" />
         <span className="text-xs font-bold bg-blue-600 text-white px-3 py-1 rounded-full tracking-wide">
           For builders
         </span>
