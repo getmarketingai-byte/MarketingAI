@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteUrl,
   },
+  verification: {
+    google: "fiWUvDGdKXgVQmmHNF_FNqL9y6UytzkxIFUX1ixLCf8",
+  },
   openGraph: {
     title: "MarketingAI — AI-assisted marketing systems for Australian small businesses",
     description: "Done-with-you AI marketing system setup. Three coordinated systems built and handed over in under a week. $149 AUD one-time.",
