@@ -7,7 +7,7 @@ import Script from 'next/script';
 const siteUrl = "https://marketing-ai-psi-nine.vercel.app";
 
 export const metadata: Metadata = {
-  title: "MarketingAI — AI-assisted marketing systems for Australian small businesses",
+  title: "AI Marketing for Australian Small Business | MarketingAI",
   description: "MarketingAI sets up three AI-assisted marketing systems for your Australian business: AI Content Engine, Outbound Lead Sequence, and Email Nurture Sequence. $149 AUD one-time setup. No lock-in.",
   alternates: {
     canonical: siteUrl,
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     google: "fiWUvDGdKXgVQmmHNF_FNqL9y6UytzkxIFUX1ixLCf8",
   },
   openGraph: {
-    title: "MarketingAI — AI-assisted marketing systems for Australian small businesses",
+    title: "AI Marketing for Australian Small Business | MarketingAI",
     description: "Done-with-you AI marketing system setup. Three coordinated systems built and handed over in under a week. $149 AUD one-time.",
     url: siteUrl,
     siteName: "MarketingAI",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MarketingAI — AI-assisted marketing systems for Australian small businesses",
+    title: "AI Marketing for Australian Small Business | MarketingAI",
     description: "Done-with-you AI marketing system setup. Three coordinated systems built and handed over in under a week. $149 AUD one-time.",
   },
 };

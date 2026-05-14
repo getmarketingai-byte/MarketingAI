@@ -28,9 +28,12 @@ export default function Home() {
         <p className="text-xs font-bold tracking-widest uppercase text-blue-600 mb-5">
           Automated marketing for Australian businesses
         </p>
-        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-6">
-          Stop losing customers to businesses that show up. You don&rsquo;t.
+        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-3">
+          AI Marketing for Australian Small Business
         </h1>
+        <p className="text-2xl font-semibold text-gray-700 mb-6">
+          Stop losing customers to competitors who show up online. Start winning.
+        </p>
         <p className="text-lg text-gray-500 mb-10 max-w-xl mx-auto">
           Most Australian small businesses have a great product and a forgettable online presence.
           MarketingAI sets up an automated system that finds, attracts, and nurtures your
